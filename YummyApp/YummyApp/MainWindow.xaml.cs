@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Linq;
 
 namespace YummyApp
 {
@@ -23,6 +24,9 @@ namespace YummyApp
         public MainWindow()
         {
             InitializeComponent();
+            yummyDatabaseDataContext dc = new yummyDatabaseDataContext();
+            Table<UserRecipe> tab = dc.UserRecipes;
+            ExampleGrid.ItemsSource = tab;
         }
     }
 }
