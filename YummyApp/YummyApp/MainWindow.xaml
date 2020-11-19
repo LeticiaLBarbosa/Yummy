@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YummyApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="590" Width="840">
     <Grid>
-        <DataGrid Name="ExampleGrid" HorizontalAlignment="Left" Height="128" Margin="135,194,0,0" VerticalAlignment="Top" Width="528"/>
-
+        <DataGrid Name="ExampleGrid" HorizontalAlignment="Left" Height="128" Margin="132,40,0,0" VerticalAlignment="Top" Width="528"/>
+        <Button Content="My Catalog" HorizontalAlignment="Left" Margin="347,230,0,0" VerticalAlignment="Top" Width="75" Click="GoToMyCatalogPage"/>
     </Grid>
 </Window>

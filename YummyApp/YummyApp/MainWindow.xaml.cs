@@ -21,12 +21,19 @@ namespace YummyApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Catalog catalogWindow;
         public MainWindow()
         {
             InitializeComponent();
             yummyDatabaseDataContext dc = new yummyDatabaseDataContext();
             Table<UserRecipe> tab = dc.UserRecipes;
             ExampleGrid.ItemsSource = tab;
+            catalogWindow = new Catalog();
+        }
+
+        private void GoToMyCatalogPage(object sender, RoutedEventArgs e)
+        {
+            catalogWindow.Show();
         }
     }
 }

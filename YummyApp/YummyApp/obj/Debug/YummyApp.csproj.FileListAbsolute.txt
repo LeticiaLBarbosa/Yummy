@@ -16,3 +16,5 @@ C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\Yu
 C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.csproj.CoreCompileInputs.cache
 C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.exe
 C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.pdb
+C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\obj\Debug\Catalog.g.cs
+C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\obj\Debug\Catalog.baml
