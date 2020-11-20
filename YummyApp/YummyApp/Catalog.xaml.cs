@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace YummyApp
 {
     /// <summary>
@@ -19,9 +20,30 @@ namespace YummyApp
     /// </summary>
     public partial class Catalog : Window
     {
+        yummyDatabaseDataContext dc = new yummyDatabaseDataContext();
         public Catalog()
         {
             InitializeComponent();
+            fillCategoryComboBox();
+            fillCategoryImage();
         }
+
+        //fill the category Dropbox at loading time
+        private void fillCategoryComboBox()
+        {
+            List<Category> data = dc.Categories.ToList();
+            searchCategory.ItemsSource = data;
+            searchCategory.DisplayMemberPath = "CategoryName";
+            searchCategory.SelectedValuePath = "CategoryId";
+        }
+
+
+        private void categorySelectedFromComboBox(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedCategory = searchCategory.SelectedItem as Category;
+            MessageBox.Show(selectedCategory.CategoryId.ToString() + ' '+ selectedCategory.CategoryName);
+        }
+
+     
     }
 }
