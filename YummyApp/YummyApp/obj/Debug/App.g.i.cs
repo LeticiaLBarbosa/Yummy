@@ -48,7 +48,7 @@ namespace YummyApp {
         public void InitializeComponent() {
             
             #line 5 "..\..\App.xaml"
-            this.StartupUri = new System.Uri("MainWindow.xaml", System.UriKind.Relative);
+            this.StartupUri = new System.Uri("AddRecipe.xaml", System.UriKind.Relative);
             
             #line default
             #line hidden

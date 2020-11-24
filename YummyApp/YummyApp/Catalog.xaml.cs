@@ -25,7 +25,7 @@ namespace YummyApp
         {
             InitializeComponent();
             fillCategoryComboBox();
-            fillCategoryImage();
+            //fillCategoryImage();
         }
 
         //fill the category Dropbox at loading time

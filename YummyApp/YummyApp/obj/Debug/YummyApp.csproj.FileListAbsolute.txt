@@ -48,3 +48,15 @@ C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug
 C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.exe
 C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.pdb
 C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\AddRecipe.g.cs
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\bin\Debug\yummyDatabase.mdf
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\bin\Debug\yummyDatabase_log.ldf
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\bin\Debug\YummyApp.exe.config
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\bin\Debug\YummyApp.exe
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\bin\Debug\YummyApp.pdb
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\AddRecipe.baml
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\Catalog.baml
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\MainWindow.baml
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.g.resources
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.Properties.Resources.resources
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.csproj.GenerateResource.cache
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.csproj.CoreCompileInputs.cache
