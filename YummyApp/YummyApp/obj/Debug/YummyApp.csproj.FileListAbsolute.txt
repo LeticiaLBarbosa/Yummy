@@ -38,3 +38,13 @@ C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProj
 C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.csproj.CoreCompileInputs.cache
 C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.exe
 C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.pdb
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.csprojAssemblyReference.cache
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\Catalog.g.cs
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\MainWindow.g.cs
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\App.g.cs
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp_Content.g.cs
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp_MarkupCompile.cache
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp_MarkupCompile.lref
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.exe
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.pdb
+C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\AddRecipe.g.cs
