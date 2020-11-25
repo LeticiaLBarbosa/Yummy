@@ -1,26 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="yummyDatabase" Class="yummyDatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\yummyDatabase.mdf;Integrated Security=True" SettingsObjectName="YummyApp.Properties.Settings" SettingsPropertyName="yummyDatabaseConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.UserRecipe" Member="UserRecipes">
-    <Type Name="UserRecipe">
-      <Column Name="UserRecipeId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="RecipeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Favorite" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.UserCategory" Member="UserCategories">
-    <Type Name="UserCategory">
-      <Column Name="UserCategoryId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Category_UserCategory" Member="Category" ThisKey="CategoryId" OtherKey="CategoryId" Type="Category" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Category" Member="Categories">
     <Type Name="Category">
       <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="CategoryName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Association Name="Category_UserCategory" Member="UserCategories" ThisKey="CategoryId" OtherKey="CategoryId" Type="UserCategory" />
+      <Column Name="CategoryImage" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Recipe" Member="Recipes">
+    <Type Name="Recipe">
+      <Column Name="RecipeId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Recipe_Favorite" Member="Favorites" ThisKey="RecipeId" OtherKey="RecipeId" Type="Favorite" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Favorite" Member="Favorites">
+    <Type Name="Favorite">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RecipeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Recipe_Favorite" Member="Recipe" ThisKey="RecipeId" OtherKey="RecipeId" Type="Recipe" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

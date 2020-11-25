@@ -30,15 +30,15 @@ namespace YummyApp
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertUserRecipe(UserRecipe instance);
-    partial void UpdateUserRecipe(UserRecipe instance);
-    partial void DeleteUserRecipe(UserRecipe instance);
-    partial void InsertUserCategory(UserCategory instance);
-    partial void UpdateUserCategory(UserCategory instance);
-    partial void DeleteUserCategory(UserCategory instance);
     partial void InsertCategory(Category instance);
     partial void UpdateCategory(Category instance);
     partial void DeleteCategory(Category instance);
+    partial void InsertRecipe(Recipe instance);
+    partial void UpdateRecipe(Recipe instance);
+    partial void DeleteRecipe(Recipe instance);
+    partial void InsertFavorite(Favorite instance);
+    partial void UpdateFavorite(Favorite instance);
+    partial void DeleteFavorite(Favorite instance);
     #endregion
 		
 		public yummyDatabaseDataContext() : 
@@ -71,22 +71,6 @@ namespace YummyApp
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<UserRecipe> UserRecipes
-		{
-			get
-			{
-				return this.GetTable<UserRecipe>();
-			}
-		}
-		
-		public System.Data.Linq.Table<UserCategory> UserCategories
-		{
-			get
-			{
-				return this.GetTable<UserCategory>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Category> Categories
 		{
 			get
@@ -94,289 +78,20 @@ namespace YummyApp
 				return this.GetTable<Category>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserRecipe")]
-	public partial class UserRecipe : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _UserRecipeId;
-		
-		private int _UserId;
-		
-		private int _RecipeId;
-		
-		private System.Nullable<char> _Favorite;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUserRecipeIdChanging(int value);
-    partial void OnUserRecipeIdChanged();
-    partial void OnUserIdChanging(int value);
-    partial void OnUserIdChanged();
-    partial void OnRecipeIdChanging(int value);
-    partial void OnRecipeIdChanged();
-    partial void OnFavoriteChanging(System.Nullable<char> value);
-    partial void OnFavoriteChanged();
-    #endregion
-		
-		public UserRecipe()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserRecipeId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int UserRecipeId
+		public System.Data.Linq.Table<Recipe> Recipes
 		{
 			get
 			{
-				return this._UserRecipeId;
-			}
-			set
-			{
-				if ((this._UserRecipeId != value))
-				{
-					this.OnUserRecipeIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserRecipeId = value;
-					this.SendPropertyChanged("UserRecipeId");
-					this.OnUserRecipeIdChanged();
-				}
+				return this.GetTable<Recipe>();
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int NOT NULL")]
-		public int UserId
+		public System.Data.Linq.Table<Favorite> Favorites
 		{
 			get
 			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					this.OnUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserId = value;
-					this.SendPropertyChanged("UserId");
-					this.OnUserIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecipeId", DbType="Int NOT NULL")]
-		public int RecipeId
-		{
-			get
-			{
-				return this._RecipeId;
-			}
-			set
-			{
-				if ((this._RecipeId != value))
-				{
-					this.OnRecipeIdChanging(value);
-					this.SendPropertyChanging();
-					this._RecipeId = value;
-					this.SendPropertyChanged("RecipeId");
-					this.OnRecipeIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Favorite", DbType="Char(1)")]
-		public System.Nullable<char> Favorite
-		{
-			get
-			{
-				return this._Favorite;
-			}
-			set
-			{
-				if ((this._Favorite != value))
-				{
-					this.OnFavoriteChanging(value);
-					this.SendPropertyChanging();
-					this._Favorite = value;
-					this.SendPropertyChanged("Favorite");
-					this.OnFavoriteChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserCategory")]
-	public partial class UserCategory : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _UserCategoryId;
-		
-		private int _UserId;
-		
-		private int _CategoryId;
-		
-		private EntityRef<Category> _Category;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUserCategoryIdChanging(int value);
-    partial void OnUserCategoryIdChanged();
-    partial void OnUserIdChanging(int value);
-    partial void OnUserIdChanged();
-    partial void OnCategoryIdChanging(int value);
-    partial void OnCategoryIdChanged();
-    #endregion
-		
-		public UserCategory()
-		{
-			this._Category = default(EntityRef<Category>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserCategoryId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int UserCategoryId
-		{
-			get
-			{
-				return this._UserCategoryId;
-			}
-			set
-			{
-				if ((this._UserCategoryId != value))
-				{
-					this.OnUserCategoryIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserCategoryId = value;
-					this.SendPropertyChanged("UserCategoryId");
-					this.OnUserCategoryIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int NOT NULL")]
-		public int UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					this.OnUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserId = value;
-					this.SendPropertyChanged("UserId");
-					this.OnUserIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryId", DbType="Int NOT NULL")]
-		public int CategoryId
-		{
-			get
-			{
-				return this._CategoryId;
-			}
-			set
-			{
-				if ((this._CategoryId != value))
-				{
-					if (this._Category.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCategoryIdChanging(value);
-					this.SendPropertyChanging();
-					this._CategoryId = value;
-					this.SendPropertyChanged("CategoryId");
-					this.OnCategoryIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_UserCategory", Storage="_Category", ThisKey="CategoryId", OtherKey="CategoryId", IsForeignKey=true)]
-		public Category Category
-		{
-			get
-			{
-				return this._Category.Entity;
-			}
-			set
-			{
-				Category previousValue = this._Category.Entity;
-				if (((previousValue != value) 
-							|| (this._Category.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Category.Entity = null;
-						previousValue.UserCategories.Remove(this);
-					}
-					this._Category.Entity = value;
-					if ((value != null))
-					{
-						value.UserCategories.Add(this);
-						this._CategoryId = value.CategoryId;
-					}
-					else
-					{
-						this._CategoryId = default(int);
-					}
-					this.SendPropertyChanged("Category");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<Favorite>();
 			}
 		}
 	}
@@ -391,7 +106,7 @@ namespace YummyApp
 		
 		private string _CategoryName;
 		
-		private EntitySet<UserCategory> _UserCategories;
+		private System.Data.Linq.Binary _CategoryImage;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -401,11 +116,12 @@ namespace YummyApp
     partial void OnCategoryIdChanged();
     partial void OnCategoryNameChanging(string value);
     partial void OnCategoryNameChanged();
+    partial void OnCategoryImageChanging(System.Data.Linq.Binary value);
+    partial void OnCategoryImageChanged();
     #endregion
 		
 		public Category()
 		{
-			this._UserCategories = new EntitySet<UserCategory>(new Action<UserCategory>(this.attach_UserCategories), new Action<UserCategory>(this.detach_UserCategories));
 			OnCreated();
 		}
 		
@@ -449,16 +165,101 @@ namespace YummyApp
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_UserCategory", Storage="_UserCategories", ThisKey="CategoryId", OtherKey="CategoryId")]
-		public EntitySet<UserCategory> UserCategories
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryImage", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary CategoryImage
 		{
 			get
 			{
-				return this._UserCategories;
+				return this._CategoryImage;
 			}
 			set
 			{
-				this._UserCategories.Assign(value);
+				if ((this._CategoryImage != value))
+				{
+					this.OnCategoryImageChanging(value);
+					this.SendPropertyChanging();
+					this._CategoryImage = value;
+					this.SendPropertyChanged("CategoryImage");
+					this.OnCategoryImageChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Recipe")]
+	public partial class Recipe : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _RecipeId;
+		
+		private EntitySet<Favorite> _Favorites;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRecipeIdChanging(int value);
+    partial void OnRecipeIdChanged();
+    #endregion
+		
+		public Recipe()
+		{
+			this._Favorites = new EntitySet<Favorite>(new Action<Favorite>(this.attach_Favorites), new Action<Favorite>(this.detach_Favorites));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecipeId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int RecipeId
+		{
+			get
+			{
+				return this._RecipeId;
+			}
+			set
+			{
+				if ((this._RecipeId != value))
+				{
+					this.OnRecipeIdChanging(value);
+					this.SendPropertyChanging();
+					this._RecipeId = value;
+					this.SendPropertyChanged("RecipeId");
+					this.OnRecipeIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Recipe_Favorite", Storage="_Favorites", ThisKey="RecipeId", OtherKey="RecipeId")]
+		public EntitySet<Favorite> Favorites
+		{
+			get
+			{
+				return this._Favorites;
+			}
+			set
+			{
+				this._Favorites.Assign(value);
 			}
 		}
 		
@@ -482,16 +283,143 @@ namespace YummyApp
 			}
 		}
 		
-		private void attach_UserCategories(UserCategory entity)
+		private void attach_Favorites(Favorite entity)
 		{
 			this.SendPropertyChanging();
-			entity.Category = this;
+			entity.Recipe = this;
 		}
 		
-		private void detach_UserCategories(UserCategory entity)
+		private void detach_Favorites(Favorite entity)
 		{
 			this.SendPropertyChanging();
-			entity.Category = null;
+			entity.Recipe = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Favorite")]
+	public partial class Favorite : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _RecipeId;
+		
+		private EntityRef<Recipe> _Recipe;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnRecipeIdChanging(int value);
+    partial void OnRecipeIdChanged();
+    #endregion
+		
+		public Favorite()
+		{
+			this._Recipe = default(EntityRef<Recipe>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecipeId", DbType="Int NOT NULL")]
+		public int RecipeId
+		{
+			get
+			{
+				return this._RecipeId;
+			}
+			set
+			{
+				if ((this._RecipeId != value))
+				{
+					if (this._Recipe.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRecipeIdChanging(value);
+					this.SendPropertyChanging();
+					this._RecipeId = value;
+					this.SendPropertyChanged("RecipeId");
+					this.OnRecipeIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Recipe_Favorite", Storage="_Recipe", ThisKey="RecipeId", OtherKey="RecipeId", IsForeignKey=true)]
+		public Recipe Recipe
+		{
+			get
+			{
+				return this._Recipe.Entity;
+			}
+			set
+			{
+				Recipe previousValue = this._Recipe.Entity;
+				if (((previousValue != value) 
+							|| (this._Recipe.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Recipe.Entity = null;
+						previousValue.Favorites.Remove(this);
+					}
+					this._Recipe.Entity = value;
+					if ((value != null))
+					{
+						value.Favorites.Add(this);
+						this._RecipeId = value.RecipeId;
+					}
+					else
+					{
+						this._RecipeId = default(int);
+					}
+					this.SendPropertyChanged("Recipe");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

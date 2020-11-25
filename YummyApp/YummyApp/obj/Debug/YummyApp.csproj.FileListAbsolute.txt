@@ -1,5 +1,3 @@
-C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\bin\Debug\yummyDatabase.mdf
-C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\bin\Debug\yummyDatabase_log.ldf
 C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\bin\Debug\YummyApp.exe.config
 C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\bin\Debug\YummyApp.exe
 C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\bin\Debug\YummyApp.pdb
@@ -38,3 +36,5 @@ C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProj
 C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.csproj.CoreCompileInputs.cache
 C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.exe
 C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.pdb
+C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\obj\Debug\CategoryPage.g.cs
+C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\obj\Debug\CategoryPage.baml

@@ -22,18 +22,22 @@ namespace YummyApp
     public partial class MainWindow : Window
     {
         private Catalog catalogWindow;
+        private CategoryPage categoryPage;
         public MainWindow()
         {
             InitializeComponent();
-            yummyDatabaseDataContext dc = new yummyDatabaseDataContext();
-            Table<UserRecipe> tab = dc.UserRecipes;
-            ExampleGrid.ItemsSource = tab;
             catalogWindow = new Catalog();
+            categoryPage = new CategoryPage();
         }
 
         private void GoToMyCatalogPage(object sender, RoutedEventArgs e)
         {
             catalogWindow.Show();
+        }
+
+        private void GoToMyCategoryPage(object sender, RoutedEventArgs e)
+        {
+            categoryPage.Show();
         }
     }
 }
