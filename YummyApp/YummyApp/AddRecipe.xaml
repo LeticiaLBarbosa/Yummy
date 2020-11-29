@@ -36,7 +36,7 @@
         <Label Content="Ingredient" Margin="0,37,186,0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
         <TextBox x:Name="txtRecipeIngredientIngredient" Height="23" Margin="548,63,100,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
         <Button x:Name="btnAddRecipeIngredient" Content="+" HorizontalAlignment="Left" Margin="706,64,0,0" VerticalAlignment="Top" Width="43" Height="22" Click="btnAddRecipeIngredient_Click"/>
-        <Button Content="Edit" HorizontalAlignment="Left" Margin="706,234,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnAddrecipeEditRecipeIngredient" Content="Edit" HorizontalAlignment="Left" Margin="706,234,0,0" VerticalAlignment="Top" Width="75" Click="btnAddrecipeEditRecipeIngredient_Click"/>
         <TextBox x:Name="txtRecipeDirections" HorizontalAlignment="Left" Height="89" Margin="358,283,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="423" AcceptsReturn="True" AcceptsTab="True" />
         <Label Content="Directions" Margin="353,260,357,0" VerticalAlignment="Top"/>
         <Button Content="Cancel" HorizontalAlignment="Left" Margin="360,385,0,0"  VerticalAlignment="Top" Width="200" IsCancel="True" />
@@ -46,5 +46,6 @@
         <Button x:Name="btnDeleteImage" Content="-" HorizontalAlignment="Left" Margin="297,70,0,0" VerticalAlignment="Top" Width="43" Height="22" Click="btnDeleteImage_Click" />
         <ComboBox x:Name="cbRecipeCategory" HorizontalAlignment="Left" Margin="28,321,0,0" VerticalAlignment="Top" Width="262" Height="31" SelectedIndex="0" />
         <DataGrid x:Name="dgRecipeIngredients" HorizontalAlignment="Left" Height="125" Margin="360,91,0,0" VerticalAlignment="Top" Width="421"/>
+        <Button x:Name="btnAddrecipeDeleteRecipeIngredient" Content="Delete" HorizontalAlignment="Left" Margin="619,234,0,0" VerticalAlignment="Top" Width="75" Click="btnAddrecipeDeleteRecipeIngredient_Click"/>
     </Grid>
 </Window>

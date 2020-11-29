@@ -40,7 +40,7 @@
         <classShapeMoniker Id="b69bba07-c5ec-4406-a8d4-76a434d60858" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.5 : 2.51044840494792); (3.375 : 2.51044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.5 : 2.51044840494792); (3.375 : 2.51044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/yummyDatabaseDataContext/Recipe/Recipe_RecipeIngredient" />
       <nodes>
         <classShapeMoniker Id="ae96e590-f04f-4244-99b9-a4a287e2d426" />

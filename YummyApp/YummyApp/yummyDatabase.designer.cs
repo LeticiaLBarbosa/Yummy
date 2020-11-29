@@ -48,7 +48,7 @@ namespace YummyApp
     #endregion
 		
 		public yummyDatabaseDataContext() : 
-				base(global::YummyApp.Properties.Settings.Default.yummyDatabaseConnectionString1, mappingSource)
+				base(global::YummyApp.Properties.Settings.Default.yummyDatabaseConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
