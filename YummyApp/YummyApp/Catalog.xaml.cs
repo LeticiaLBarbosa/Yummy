@@ -41,7 +41,10 @@ namespace YummyApp
             foreach (var categoryObj in catTable)
             {
                 MediaData cnt = new MediaData();
-                cnt.ImageData = ByteArrayToImage(categoryObj.CategoryImage.ToArray());
+                if (categoryObj.CategoryImage != null)
+                {
+                    cnt.ImageData = ByteArrayToImage(categoryObj.CategoryImage.ToArray());
+                }
                 cnt.Title = categoryObj.CategoryName;
                 myCategories.Add(cnt);
             }

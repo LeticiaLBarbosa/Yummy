@@ -9,20 +9,19 @@
     <Grid>
         <Label Content="New Recipe" HorizontalAlignment="Left" Margin="28,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.408,2.646" FontSize="18" FontWeight="Bold"/>
         <Label Content="Title" HorizontalAlignment="Left" Margin="28,190,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.272,0.32"/>
-        <TextBox HorizontalAlignment="Left" Height="31" Margin="28,212,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="264"/>
+        <TextBox x:Name="txtRecipeName" HorizontalAlignment="Left" Height="31" Margin="28,212,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="264" />
         <Label Content="Prep Time" HorizontalAlignment="Left" Margin="28,243,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.272,0.32"/>
-        <TextBox HorizontalAlignment="Left" Height="31" Margin="28,266,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109"/>
+        <TextBox x:Name="txtRecipePrepTime" HorizontalAlignment="Left" Height="31" Margin="28,266,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109"/>
         <Label Content="Servings" HorizontalAlignment="Left" Margin="181,243,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.272,0.32"/>
-        <TextBox HorizontalAlignment="Left" Height="31" Margin="181,266,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109"/>
+        <TextBox x:Name="txtRecipeServings" HorizontalAlignment="Left" Height="31" Margin="181,266,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109"/>
         <Label Content="Category" HorizontalAlignment="Left" Margin="28,297,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.272,0.32"/>
-        <TextBox HorizontalAlignment="Left" Height="31" Margin="28,321,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="264"/>
         <Label Content="Description" HorizontalAlignment="Left" Margin="28,351,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.272,0.32"/>
         <TextBox HorizontalAlignment="Left" Height="31" Margin="28,374,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="264"/>
         <Label Content="Ingredients" HorizontalAlignment="Left" Margin="353,6,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox Height="23" Margin="358,63,385,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtRecipeIngredientQuantity" Height="23" Margin="358,63,385,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
         <Label Content="Quantity" Margin="353,37,385,0" VerticalAlignment="Top" d:LayoutOverrides="Width"/>
-        <Label Content="Measurment" Margin="0,38,305,0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-        <ComboBox x:Name="Units" HorizontalAlignment="Left" Margin="414,64,0,0" VerticalAlignment="Top" Width="129">
+        <Label Content="Measurement" Margin="0,37,302,0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <ComboBox x:Name="cbRecipeIngredientMeasurement" HorizontalAlignment="Left" Margin="414,64,0,0" VerticalAlignment="Top" Width="129">
             <ComboBoxItem Content="Unit" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Cup" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Tablespoon" HorizontalAlignment="Left" Width="118"/>
@@ -35,15 +34,18 @@
             <ComboBoxItem Content="Liters" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
         <Label Content="Ingredient" Margin="0,37,186,0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-        <TextBox Height="23" Margin="548,63,100,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <Button Content="+" HorizontalAlignment="Left" Margin="706,64,0,0" VerticalAlignment="Top" Width="43" Height="22"/>
-        <TextBlock HorizontalAlignment="Left" Margin="358,94,0,0" TextWrapping="Wrap" Text="Ingredient List" VerticalAlignment="Top" Width="336" Height="162" Background="#FFE8E6E6"/>
-        <Button Content="Edit" HorizontalAlignment="Left" Margin="706,234,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox HorizontalAlignment="Left" Height="89" Margin="358,283,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="423" />
+        <TextBox x:Name="txtRecipeIngredientIngredient" Height="23" Margin="548,63,100,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <Button x:Name="btnAddRecipeIngredient" Content="+" HorizontalAlignment="Left" Margin="706,64,0,0" VerticalAlignment="Top" Width="43" Height="22" Click="btnAddRecipeIngredient_Click"/>
+        <Button x:Name="btnAddrecipeEditRecipeIngredient" Content="Edit" HorizontalAlignment="Left" Margin="706,234,0,0" VerticalAlignment="Top" Width="75" Click="btnAddrecipeEditRecipeIngredient_Click"/>
+        <TextBox x:Name="txtRecipeDirections" HorizontalAlignment="Left" Height="89" Margin="358,283,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="423" AcceptsReturn="True" AcceptsTab="True" />
         <Label Content="Directions" Margin="353,260,357,0" VerticalAlignment="Top"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" Margin="360,385,0,0"  VerticalAlignment="Top" Width="200"/>
-        <Button Content="Save Recipe" HorizontalAlignment="Left" Margin="581,385,0,0"  VerticalAlignment="Top" Width="200"/>
-        <Image HorizontalAlignment="Left" Height="146" Margin="28,39,0,0" VerticalAlignment="Top" Width="264" Source="image.png"/>
-
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="360,385,0,0"  VerticalAlignment="Top" Width="200" IsCancel="True" />
+        <Button x:Name="btnSaveRecipe" Content="Save Recipe" HorizontalAlignment="Left" Margin="581,385,0,0"  VerticalAlignment="Top" Width="200" Click="btnSaveRecipe_Click"/>
+        <Image x:Name="imgRecipePhoto" HorizontalAlignment="Left" Height="146" Margin="28,39,0,0" VerticalAlignment="Top" Width="264" Source="image.png"/>
+        <Button x:Name="btnAddImage" Content="+" HorizontalAlignment="Left" Margin="297,37,0,0" VerticalAlignment="Top" Width="43" Height="22" Click="btnAddImage_Click"/>
+        <Button x:Name="btnDeleteImage" Content="-" HorizontalAlignment="Left" Margin="297,70,0,0" VerticalAlignment="Top" Width="43" Height="22" Click="btnDeleteImage_Click" />
+        <ComboBox x:Name="cbRecipeCategory" HorizontalAlignment="Left" Margin="28,321,0,0" VerticalAlignment="Top" Width="262" Height="31" SelectedIndex="0" />
+        <DataGrid x:Name="dgRecipeIngredients" HorizontalAlignment="Left" Height="125" Margin="360,91,0,0" VerticalAlignment="Top" Width="421"/>
+        <Button x:Name="btnAddrecipeDeleteRecipeIngredient" Content="Delete" HorizontalAlignment="Left" Margin="619,234,0,0" VerticalAlignment="Top" Width="75" Click="btnAddrecipeDeleteRecipeIngredient_Click"/>
     </Grid>
 </Window>

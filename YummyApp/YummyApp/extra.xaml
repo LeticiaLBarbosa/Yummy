@@ -1,0 +1,15 @@
+﻿<Window x:Class="YummyApp.extra"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YummyApp"
+        mc:Ignorable="d"
+        Title="extra" Height="590" Width="840">
+    <Grid>
+        <DataGrid x:Name="dgRecipes" HorizontalAlignment="Left" Height="441" Margin="25,40,0,0" VerticalAlignment="Top" Width="775"/>
+        <Button x:Name="btnAddRecipe" Content="Add Recipe" HorizontalAlignment="Left" Margin="25,492,0,0" VerticalAlignment="Top" Width="91" Click="btnAddRecipe_Click" />
+        <Button x:Name="btnUpdateRecipe" Content="Update Recipe" HorizontalAlignment="Left" Margin="135,492,0,0" VerticalAlignment="Top" Width="91" Click="btnUpdateRecipe_Click"/>
+        <Button x:Name="btnDeleteRecipe" Content="Delete Recipe" HorizontalAlignment="Left" Margin="248,492,0,0" VerticalAlignment="Top" Width="91" Click="btnDeleteRecipe_Click"/>
+    </Grid>
+</Window>

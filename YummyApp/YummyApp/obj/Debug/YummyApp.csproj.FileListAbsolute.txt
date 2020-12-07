@@ -63,3 +63,8 @@ C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\Yu
 C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\obj\Debug\CategoryPage.g.cs
 C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\obj\Debug\AddRecipe.baml
 C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\obj\Debug\CategoryPage.baml
+C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\obj\Debug\EditRecipeIngredients.g.cs
+C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\obj\Debug\extra.g.cs
+C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\bin\Debug\yummyDatabase_log.ldf
+C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\obj\Debug\EditRecipeIngredients.baml
+C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\obj\Debug\extra.baml
