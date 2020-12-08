@@ -58,7 +58,7 @@ namespace YummyApp
         {
             if (dgRecipes.SelectedItem != null)
             {
-                AddRecipe addRecipe = new AddRecipe((dgRecipes.SelectedItem as dynamic).RecipeId);
+                AddRecipe addRecipe = (dgRecipes.SelectedItem as dynamic).RecipeId;
                 addRecipe.ShowDialog();
                 refreshRecipies();
             }
@@ -106,6 +106,11 @@ namespace YummyApp
 
             // selecting specific columns to display in the recipe datagrid
             dgRecipes.ItemsSource = dc.Recipes.Select(recipe => new { recipe.RecipeId, recipe.Name, recipe.PrepTime, recipe.Serving, Category = recipe.Category1.CategoryName });
+        }
+
+        private void dgRecipes_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

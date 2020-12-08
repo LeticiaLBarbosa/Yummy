@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="yummyDatabase" Class="yummyDatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\yummyDatabase.mdf;Integrated Security=True" SettingsObjectName="YummyApp.Properties.Settings" SettingsPropertyName="yummyDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\yummyDatabase.mdf;Integrated Security=True" SettingsObjectName="YummyApp.Properties.Settings" SettingsPropertyName="yummyDatabaseConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Ingredient" Member="Ingredients">
     <Type Name="Ingredient">
       <Column Name="IngredientId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -20,13 +20,6 @@
       <Association Name="Category_Recipe" Member="Category1" ThisKey="Category" OtherKey="CategoryId" Type="Category" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Category" Member="Categories">
-    <Type Name="Category">
-      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="CategoryName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Association Name="Category_Recipe" Member="Recipes" ThisKey="CategoryId" OtherKey="Category" Type="Recipe" />
-    </Type>
-  </Table>
   <Table Name="dbo.RecipeIngredient" Member="RecipeIngredients">
     <Type Name="RecipeIngredient">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -44,6 +37,15 @@
       <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="RecipeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Favorite" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Category" Member="Categories">
+    <Type Name="Category">
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryImage" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Category_Recipe" Member="Recipes" ThisKey="CategoryId" OtherKey="Category" Type="Recipe" />
     </Type>
   </Table>
 </Database>
