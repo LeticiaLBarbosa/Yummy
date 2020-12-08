@@ -59,7 +59,7 @@ namespace YummyApp
         {
             if (dgRecipes.SelectedItem != null)
             {
-                AddRecipe addRecipe = (dgRecipes.SelectedItem as dynamic).RecipeId;
+                AddRecipe addRecipe = new AddRecipe((dgRecipes.SelectedItem as dynamic).RecipeId);
                 addRecipe.ShowDialog();
                 refreshRecipies();
             }
