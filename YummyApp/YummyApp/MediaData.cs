@@ -20,19 +20,10 @@ namespace YummyApp
 {
     public class MediaData
     {
-        private string _Title;
-        public string Title
-        {
-            get { return this._Title; }
-            set { this._Title = value; }
-        }
-
-        private BitmapImage _ImageData;
-        public BitmapImage ImageData
-        {
-            get { return this._ImageData; }
-            set { this._ImageData = value; }
-        }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public BitmapImage ImageData { get; set; }
 
     }
 }

@@ -38,5 +38,10 @@ namespace YummyApp
             CategoryPage categoryPage = new CategoryPage();
             categoryPage.Show();
         }
+        private void GoToMyRecipePage(object sender, RoutedEventArgs e)
+        {
+            extra recipePage = new extra();
+            recipePage.Show();
+        }
     }
 }

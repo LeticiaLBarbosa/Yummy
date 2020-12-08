@@ -9,5 +9,6 @@
     <Grid>
         <Button Content="My Catalog" HorizontalAlignment="Left" Margin="347,230,0,0" VerticalAlignment="Top" Width="75" Click="GoToMyCatalogPage"/>
         <Button Content="My Category" HorizontalAlignment="Left" Margin="473,230,0,0" VerticalAlignment="Top" Width="75" Click="GoToMyCategoryPage"/>
+        <Button Content="My Recipe" HorizontalAlignment="Left" Margin="596,230,0,0" VerticalAlignment="Top" Width="75" Click="GoToMyRecipePage"/>
     </Grid>
 </Window>
