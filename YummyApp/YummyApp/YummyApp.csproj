@@ -83,6 +83,9 @@
     <Compile Include="extra.xaml.cs">
       <DependentUpon>extra.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PrintRecipe.xaml.cs">
+      <DependentUpon>PrintRecipe.xaml</DependentUpon>
+    </Compile>
     <Compile Include="yummyDatabase.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -116,6 +119,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PrintRecipe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
