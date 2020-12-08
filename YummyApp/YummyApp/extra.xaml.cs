@@ -62,6 +62,7 @@ namespace YummyApp
             {
                 AddRecipe addRecipe = new AddRecipe((dgRecipes.SelectedItem as dynamic).RecipeId);
                 addRecipe.labelNewRecipe.Content = "Edit Recipe";
+                addRecipe.Title = "Edit Recipe";
                 addRecipe.ShowDialog();
                 refreshRecipies();
             }
