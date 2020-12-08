@@ -27,6 +27,7 @@ namespace YummyApp
         Recipe recipe;
         List<RecipeIngredient> recipeIngredientsToDelete = new List<RecipeIngredient>();
 
+        //if user is editing a recipe, the recipe id is passed in the constructor
         public AddRecipe(int? recipeId = null)
         {
             InitializeComponent();
