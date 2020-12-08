@@ -18,26 +18,6 @@ C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\Yu
 C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.pdb
 C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\obj\Debug\Catalog.g.cs
 C:\Users\Leticia\Documents\Conestoga\8145-Software_Development\Yummy\YummyApp\YummyApp\obj\Debug\Catalog.baml
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\bin\Debug\yummyDatabase.mdf
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\bin\Debug\yummyDatabase_log.ldf
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\bin\Debug\YummyApp.exe.config
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\bin\Debug\YummyApp.exe
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\bin\Debug\YummyApp.pdb
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.csprojAssemblyReference.cache
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\Catalog.g.cs
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\MainWindow.g.cs
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\App.g.cs
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp_Content.g.cs
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp_MarkupCompile.cache
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp_MarkupCompile.lref
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\Catalog.baml
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\MainWindow.baml
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.g.resources
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.Properties.Resources.resources
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.csproj.GenerateResource.cache
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.csproj.CoreCompileInputs.cache
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.exe
-C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.pdb
 C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.csprojAssemblyReference.cache
 C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\Catalog.g.cs
 C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\MainWindow.g.cs
@@ -60,3 +40,35 @@ C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug
 C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.Properties.Resources.resources
 C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.csproj.GenerateResource.cache
 C:\Users\Carolina\source\repos\LeticiaLBarbosa\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.csproj.CoreCompileInputs.cache
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\bin\Debug\yummyDatabase.mdf
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\bin\Debug\yummyDatabase_log.ldf
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\bin\Debug\AddRecipe.xaml.cs
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\bin\Debug\YummyApp.exe.config
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\bin\Debug\YummyApp.exe
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\bin\Debug\YummyApp.pdb
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.csprojAssemblyReference.cache
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\AddRecipe.g.cs
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\Catalog.g.cs
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\CategoryForm.g.cs
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\EditRecipeIngredients.g.cs
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\extra.g.cs
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\MainWindow.g.cs
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\ModifyCategory.g.cs
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\App.g.cs
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp_Content.g.cs
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp_MarkupCompile.cache
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp_MarkupCompile.lref
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\AddRecipe.baml
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\Catalog.baml
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\CategoryForm.baml
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\EditRecipeIngredients.baml
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\extra.baml
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\MainWindow.baml
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\ModifyCategory.baml
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.g.resources
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.Properties.Resources.resources
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.csproj.GenerateResource.cache
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.csproj.CoreCompileInputs.cache
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.exe
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\YummyApp.pdb
+C:\Users\rajwinder\OneDrive\Desktop\conestoga clg\Software Development\FinalProject\Yummy\YummyApp\YummyApp\obj\Debug\App.baml
