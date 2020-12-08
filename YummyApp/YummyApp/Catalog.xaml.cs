@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Data.Linq;
 using System.Text;
@@ -12,8 +14,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Win32;
-using System.Data;
-using System.IO;
 using System.Drawing;
 
 namespace YummyApp
@@ -28,7 +28,7 @@ namespace YummyApp
         List<Category> catTable;
 
         public Catalog()
-        {
+        { 
             InitializeComponent();
             dc = new yummyDatabaseDataContext();
             myCategories = new List<MediaData>();

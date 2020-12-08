@@ -21,22 +21,21 @@ namespace YummyApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Catalog catalogWindow;
-        private CategoryPage categoryPage;
+        
         public MainWindow()
         {
             InitializeComponent();
-            catalogWindow = new Catalog();
-            categoryPage = new CategoryPage();
         }
 
         private void GoToMyCatalogPage(object sender, RoutedEventArgs e)
         {
+            Catalog catalogWindow = new Catalog();
             catalogWindow.Show();
         }
 
         private void GoToMyCategoryPage(object sender, RoutedEventArgs e)
         {
+            CategoryPage categoryPage = new CategoryPage();
             categoryPage.Show();
         }
     }

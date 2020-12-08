@@ -76,9 +76,13 @@
     </ApplicationDefinition>
     <Compile Include="AddRecipe.xaml.cs">
       <DependentUpon>AddRecipe.xaml</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Catalog.xaml.cs">
       <DependentUpon>Catalog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryForm.xaml.cs">
+      <DependentUpon>CategoryForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditRecipeIngredients.xaml.cs">
       <DependentUpon>EditRecipeIngredients.xaml</DependentUpon>
@@ -90,6 +94,12 @@
       <DependentUpon>CategoryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MediaData.cs" />
+    <Compile Include="ModifyCategory.xaml.cs">
+      <DependentUpon>ModifyCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PrintRecipe.xaml.cs">
+      <DependentUpon>PrintRecipe.xaml</DependentUpon>
+    </Compile>
     <Compile Include="yummyDatabase.cs">
       <DependentUpon>yummyDatabase.dbml</DependentUpon>
     </Compile>
@@ -103,6 +113,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Catalog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CategoryForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -129,6 +143,14 @@
     <Page Include="CategoryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModifyCategory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PrintRecipe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
