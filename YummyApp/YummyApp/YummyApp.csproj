@@ -92,6 +92,12 @@
     <Compile Include="ModifyCategory.xaml.cs">
       <DependentUpon>ModifyCategory.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PrintRecipe.xaml.cs">
+      <DependentUpon>PrintRecipe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="yummyDatabase.cs">
+      <DependentUpon>yummyDatabase.dbml</DependentUpon>
+    </Compile>
     <Compile Include="yummyDatabase.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -130,8 +136,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ModifyCategory.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PrintRecipe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

@@ -45,5 +45,17 @@ namespace YummyApp.Properties {
                 return ((string)(this["yummyDatabaseConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Carolina\\source\\repo" +
+            "s\\LeticiaLBarbosa\\Yummy\\YummyApp\\YummyApp\\yummyDatabase.mdf;Integrated Security=" +
+            "True")]
+        public string yummyDatabaseConnectionStringCarol {
+            get {
+                return ((string)(this["yummyDatabaseConnectionStringCarol"]));
+            }
+        }
     }
 }

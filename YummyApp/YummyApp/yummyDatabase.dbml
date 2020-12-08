@@ -16,6 +16,7 @@
       <Column Name="Directions" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="Category" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="Recipe_RecipeIngredient" Member="RecipeIngredients" ThisKey="RecipeId" OtherKey="RecipeId" Type="RecipeIngredient" />
       <Association Name="Category_Recipe" Member="Category1" ThisKey="Category" OtherKey="CategoryId" Type="Category" IsForeignKey="true" />
     </Type>
@@ -28,7 +29,7 @@
       <Column Name="Quantity" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="Measurement" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Association Name="Ingredient_RecipeIngredient" Member="Ingredient" ThisKey="IngredientId" OtherKey="IngredientId" Type="Ingredient" IsForeignKey="true" />
-      <Association Name="Recipe_RecipeIngredient" Member="Recipe" ThisKey="RecipeId" OtherKey="RecipeId" Type="Recipe" IsForeignKey="true" />
+      <Association Name="Recipe_RecipeIngredient" Member="Recipe" Storage="_Recipe1" ThisKey="RecipeId" OtherKey="RecipeId" Type="Recipe" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.UserRecipe" Member="UserRecipes">
