@@ -33,34 +33,14 @@ namespace YummyApp
         { 
             InitializeComponent();
             dc = new yummyDatabaseDataContext();
-            myCategories = new List<MediaData>();
-            myRecipes = new List<MediaData>();
-            catTable = dc.Categories.ToList();
-            recTable = dc.Recipes.ToList();
             ShowCategories();
             ShowRecipes();
         }
 
-        private void ShowCategories()
+        private void loadDataToDisplay(List<Recipe> tab)
         {
-            foreach (var categoryObj in catTable)
-            {
-                MediaData cnt = new MediaData();
-                if (categoryObj.CategoryImage != null)
-                {
-                    cnt.ImageData = ByteArrayToImage(categoryObj.CategoryImage.ToArray());
-                }
-                cnt.Id = categoryObj.CategoryId;
-                cnt.Title = categoryObj.CategoryName;
-                myCategories.Add(cnt);
-            }
-
-            CategoriesCarousel.ItemsSource = myCategories;
-        }
-        
-        private void ShowRecipes()
-        {
-            foreach (var recipeObj in recTable)
+            myRecipes = new List<MediaData>();
+            foreach (var recipeObj in tab)
             {
                 MediaData cnt = new MediaData();
                 if (recipeObj.Image != null)
@@ -72,13 +52,38 @@ namespace YummyApp
                 cnt.Description = recipeObj.Description;
                 myRecipes.Add(cnt);
             }
-
-            RecipesCarousel.ItemsSource = myRecipes;
+        }
+        
+        private void loadDataToDisplay(List<Category> tab)
+        {
+            myCategories = new List<MediaData>();
+            foreach (var categoryObj in tab)
+            {
+                MediaData cnt = new MediaData();
+                if (categoryObj.CategoryImage != null)
+                {
+                    cnt.ImageData = ByteArrayToImage(categoryObj.CategoryImage.ToArray());
+                }
+                cnt.Id = categoryObj.CategoryId;
+                cnt.Title = categoryObj.CategoryName;
+                myCategories.Add(cnt);
+            }
         }
 
-        private void SearchCategory_Click(object sender, RoutedEventArgs e)
+        private void ShowCategories()
         {
-            
+           var query = (from Cat in dc.Categories orderby Cat.CategoryName ascending select Cat).Take(5);
+            catTable = query.ToList();
+            loadDataToDisplay(catTable);
+            CategoriesCarousel.ItemsSource = myCategories;
+        }
+        
+        private void ShowRecipes()
+        {
+            var query = (from Rec in dc.Recipes orderby Rec.Name ascending select Rec).Take(4);
+            recTable = query.ToList();
+            loadDataToDisplay(recTable);
+            RecipesCarousel.ItemsSource = myRecipes;
         }
 
         public BitmapImage ByteArrayToImage(byte[] byteArrayIn)
@@ -112,6 +117,36 @@ namespace YummyApp
                 CategoryForm cf = new CategoryForm(category);
                 cf.Show();
             }
+        }
+
+        private void SearchCategory_Click(object sender, RoutedEventArgs e)
+        {
+            var tab = (from C in dc.Categories where C.CategoryName.ToUpper().Contains(SearchCategoryInput.Text.ToUpper()) orderby C.CategoryName ascending select C).Take(5);
+
+            loadDataToDisplay(tab.ToList());
+
+            CategoriesCarousel.ItemsSource = myCategories;
+        }
+
+        private void SearchRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            var tab = (from R in dc.Recipes where R.Name.ToUpper().Contains(SearchRecipeInput.Text.ToUpper()) orderby R.Name ascending select R).Take(4);
+
+            loadDataToDisplay(tab.ToList());
+
+            RecipesCarousel.ItemsSource = myRecipes;
+        }
+
+        private void SeeMoreRecipesClick(object sender, MouseButtonEventArgs e)
+        {
+            extra recipePage = new extra();
+            recipePage.Show();
+        }
+
+        private void SeeMoreCategoriesClick(object sender, MouseButtonEventArgs e)
+        {
+            CategoryPage categoryPage = new CategoryPage();
+            categoryPage.Show();
         }
     }
 }

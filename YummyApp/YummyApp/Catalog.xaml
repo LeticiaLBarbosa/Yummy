@@ -30,7 +30,7 @@
         </Grid.RowDefinitions>
         <Label Grid.Column="1" Margin="5" Padding="0" HorizontalAlignment="Left" Grid.Row="1" Content="My Catalog" VerticalAlignment="Center" FontWeight="Bold" FontSize="24" />
         <Label Grid.Column="1" Margin="5" HorizontalAlignment="Left" Grid.Row="2" Content="Categories" VerticalAlignment="Center" FontSize="18" Padding="0"/>
-        <TextBox Grid.Column="1" Margin="5" HorizontalAlignment="Left" Grid.Row="3" Text="Search Category" VerticalAlignment="Center" Width="300" Grid.ColumnSpan="2" FontSize="12" Padding="5"/>
+        <TextBox Name="SearchCategoryInput" Grid.Column="1" Margin="5" HorizontalAlignment="Left" Grid.Row="3" Text="Search Category" VerticalAlignment="Center" Width="300" Grid.ColumnSpan="2" FontSize="12" Padding="5"/>
         <Button Name="SearchCategory" Content="Search Category" Grid.Column="3" HorizontalAlignment="Left" Margin="10" Padding="5" Grid.Row="3" VerticalAlignment="Center" Click="SearchCategory_Click"/>
         <ListView x:Name="CategoriesCarousel" VerticalAlignment="Top" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" Margin="5" BorderBrush="{x:Null}" SelectionChanged="InspectCategory" >
             <ItemsControl.ItemsPanel>
@@ -50,7 +50,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <Label Grid.Column="1" Margin="5" HorizontalAlignment="Left" Grid.Row="6" Content="Recipes" VerticalAlignment="Center" FontSize="18" Padding="0"/>
-        <TextBox Grid.Column="1" Margin="5" HorizontalAlignment="Left" Grid.Row="7" Text="Search Recipe" VerticalAlignment="Center" Width="300" Grid.ColumnSpan="3" FontSize="12" Padding="5"/>
+        <TextBox Name="SearchRecipeInput" Grid.Column="1" Margin="5" HorizontalAlignment="Left" Grid.Row="7" Text="Search Recipe" VerticalAlignment="Center" Width="300" Grid.ColumnSpan="3" FontSize="12" Padding="5"/>
         <ListView x:Name="RecipesCarousel" VerticalAlignment="Top" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="4" Margin="5" BorderBrush="{x:Null}" SelectionChanged="InspectRecipe">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -60,7 +60,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="#FFD0D0D0" BorderThickness="1" Padding="5,0">
-                        <Grid HorizontalAlignment="Center" Width="175">
+                        <Grid HorizontalAlignment="Center" Width="170">
                             <StackPanel Margin="0,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="Auto" Height="Auto">
                                 <Image Height="130" Width="150" Source="{Binding ImageData}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0"/>
                                 <TextBlock Text="{Binding Title}" VerticalAlignment="Bottom"/>
@@ -71,13 +71,13 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button x:Name="SearchRecipe" Content="Search Recipe" Grid.Column="3" HorizontalAlignment="Left" Margin="10" Grid.Row="7" VerticalAlignment="Center" Click="SearchCategory_Click" Padding="5"/>
-        <Label Content="See More" Name="SeeMoreCategories" Grid.Column="4" HorizontalAlignment="Right" Grid.Row="5" VerticalAlignment="Top">
+        <Button Name="SearchRecipe" Content="Search Recipe" Grid.Column="3" HorizontalAlignment="Left" Margin="10" Grid.Row="7" VerticalAlignment="Center" Padding="5" Click="SearchRecipe_Click"/>
+        <Label Content="See More" Name="SeeMoreCategories" Grid.Column="4" HorizontalAlignment="Right" Grid.Row="5" VerticalAlignment="Top" MouseLeftButtonUp="SeeMoreCategoriesClick" Cursor="Hand">
             <Label.Foreground>
                 <SolidColorBrush Color="#FF0000EE"/>
             </Label.Foreground>
         </Label>
-        <Label Content="See More" Name="SeeMoreRecipes" Grid.Column="4" HorizontalAlignment="Right" Grid.Row="9" VerticalAlignment="Top">
+        <Label Content="See More" Name="SeeMoreRecipes" Grid.Column="4" HorizontalAlignment="Right" Grid.Row="9" VerticalAlignment="Top" MouseLeftButtonUp="SeeMoreRecipesClick" Cursor="Hand">
             <Label.Foreground>
                 <SolidColorBrush Color="#FF0000EE"/>
             </Label.Foreground>
