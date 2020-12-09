@@ -10,9 +10,9 @@
         <Label Background="white"  Foreground="#FF05243A" Margin="78,50,0,373" HorizontalAlignment="Left" Content="My Category" VerticalAlignment="Center" FontWeight="Bold" FontSize="24" Height="46"/>
         <TextBlock Name="categoryName"  HorizontalAlignment="Left" Margin="78,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="141" Text="Category" TextAlignment="Justify" FontSize="20"/>
         <Image x:Name="categoryImg" HorizontalAlignment="Left" Height="184" Margin="78,140,0,0" VerticalAlignment="Top" Width="252"/>
-        <Button Name="editCategory" Style="{StaticResource ButtonStyle}" Content="Edit" HorizontalAlignment="Left" Margin="78,365,0,0" VerticalAlignment="Top" Click="editCategory_Click" Width="103"/>
-        <Button Name="addCategory" Style="{StaticResource ButtonStyle}" Content="Add" HorizontalAlignment="Left" Margin="222,365,0,0" VerticalAlignment="Top" Click="addCategory_Click" Width="108"/>
-        <Button Name="closeCategory" Style="{StaticResource ButtonStyle}" Content="Close" HorizontalAlignment="Left" Margin="488,23,0,0" VerticalAlignment="Top" Click="closeCategory_Click"/>
+        <Button Name="editCategory" Content="Edit" HorizontalAlignment="Left" Margin="78,365,0,0" VerticalAlignment="Top" Click="editCategory_Click" Width="103"/>
+        <Button Name="addCategory" Content="Add" HorizontalAlignment="Left" Margin="222,365,0,0" VerticalAlignment="Top" Click="addCategory_Click" Width="108"/>
+        <Button Name="closeCategory" Content="Close" HorizontalAlignment="Left" Margin="488,23,0,0" VerticalAlignment="Top" Click="closeCategory_Click"/>
         <Label Name="recipesUnderCg" Margin="379,104,0,311" HorizontalAlignment="Left" Content="Recipes under Categeory:" VerticalAlignment="Center" FontWeight="Bold" FontSize="24" Height="54" Width="299"/>
         <DataGrid x:Name="recipeDataGrid" Background="LightGoldenrodYellow" HorizontalAlignment="Left" Height="100" Margin="379,158,0,0" VerticalAlignment="Top" Width="289"  FontSize="15" FontFamily="Verdana" HorizontalGridLinesBrush="Black" BorderBrush="{x:Null}"/>
     </Grid>

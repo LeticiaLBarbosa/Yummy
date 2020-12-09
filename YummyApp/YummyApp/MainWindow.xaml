@@ -76,7 +76,7 @@
                             <TextBlock Text="Home" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem Height="60" Selected="ListViewItem_Selected">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Account" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
                             <TextBlock Text="Catalog" VerticalAlignment="Center" Margin="20 10"/>
