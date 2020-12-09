@@ -9,14 +9,14 @@
     <Grid>
         <Label x:Name="labelRecipeName" Content="Recipe Name" HorizontalAlignment="Left" Margin="31,198,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
         <Image x:Name="imgRecipePhoto" HorizontalAlignment="Left" Height="162" Margin="31,31,0,0" VerticalAlignment="Top" Width="265"/>
-        <TextBox x:Name="txtRecipeIngrediensList" HorizontalAlignment="Left" Height="175" Margin="31,257,0,0" VerticalAlignment="Top" Width="556" BorderBrush="White"/>
+        <TextBox x:Name="txtRecipeIngrediensList" HorizontalAlignment="Left" Height="175" Margin="31,257,0,0" VerticalAlignment="Top" Width="556" BorderBrush="White" TextChanged="TxtRecipeIngrediensList_TextChanged"/>
         <Label x:Name="Ingredients" Content="Ingredients" HorizontalAlignment="Left" Margin="31,232,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="Ingredients_Copy" Content="Directions" HorizontalAlignment="Left" Margin="31,447,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox x:Name="txtRecipeDirections" HorizontalAlignment="Left" Height="345" Margin="31,478,0,0" VerticalAlignment="Top" Width="556" TextWrapping="Wrap" TextAlignment="Justify" BorderBrush="White"/>
         <Label x:Name="PrepTime" Content="Prep Time" HorizontalAlignment="Left" Margin="316,117,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="Servings" Content="Serving" HorizontalAlignment="Left" Margin="316,149,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="txtRecipePrepTime" HorizontalAlignment="Left" Height="26" Margin="383,122,0,0" VerticalAlignment="Top" Width="102" BorderBrush="White"/>
-        <TextBox x:Name="txtRecipeServings" HorizontalAlignment="Left" Height="26" Margin="383,154,0,0" VerticalAlignment="Top" Width="102" BorderBrush="White"/>
+        <TextBox x:Name="txtRecipePrepTime" HorizontalAlignment="Left" Height="26" Margin="388,117,0,0" VerticalAlignment="Top" Width="102" BorderBrush="White"/>
+        <TextBox x:Name="txtRecipeServings" HorizontalAlignment="Left" Height="26" Margin="388,149,0,0" VerticalAlignment="Top" Width="102" BorderBrush="White" RenderTransformOrigin="0.386,-0.046"/>
         <TextBox x:Name="txtRecipeDescription" HorizontalAlignment="Left" Height="73" Margin="316,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" BorderBrush="White"/>
 
     </Grid>

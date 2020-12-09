@@ -48,5 +48,10 @@ namespace YummyApp
 
             txtRecipeIngrediensList.Text = recipeIngredients;
         }
+
+        private void TxtRecipeIngrediensList_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

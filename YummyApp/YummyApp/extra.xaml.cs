@@ -121,5 +121,28 @@ namespace YummyApp
                 MessageBox.Show("Please select a recipe to print.", "Print Recipe");
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgRecipes.SelectedItem != null)
+            {
+                ShoppingList SL = new ShoppingList((dgRecipes.SelectedItem as dynamic).RecipeId);
+                SL.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a recipe to get the shoping List.");
+            }
+        }
+
+        private void DgRecipes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
