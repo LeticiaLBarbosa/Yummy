@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 
 namespace YummyApp
 {
+
+    //Carolina Naoum Junqueira
     public partial class extra : Window
     {
         yummyDatabaseDataContext dc = new yummyDatabaseDataContext();
@@ -101,7 +103,7 @@ namespace YummyApp
         }
 
         /// <summary>
-        /// method to update the recipe datagrid with the database changes
+        /// method to update the recipe datagrid to reflect database changes
         /// </summary>
         private void refreshRecipies()
         {
@@ -115,6 +117,8 @@ namespace YummyApp
         private void dgRecipes_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
         }
+
+        //This method calls a new window that displays the selected recipe
         private void btnPrintRecipe_Click(object sender, RoutedEventArgs e)
         {
             if (dgRecipes.SelectedItem != null)
