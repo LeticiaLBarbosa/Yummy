@@ -44,7 +44,7 @@
         <Button x:Name="btnSaveRecipe" Content="Save Recipe" HorizontalAlignment="Left" Margin="602,508,0,0"  VerticalAlignment="Top" Width="200" Click="btnSaveRecipe_Click"/>
         <Image x:Name="imgRecipePhoto" HorizontalAlignment="Left" Height="156" Margin="28,39,0,0" VerticalAlignment="Top" Width="261" Source="image.png" Stretch="Fill">
             <Image.OpacityMask>
-                <ImageBrush ImageSource="image.png"/>
+                <ImageBrush ImageSource="image.png" Stretch="UniformToFill"/>
             </Image.OpacityMask>
         </Image>
         <Button x:Name="btnAddImage" Content="Add Picture" HorizontalAlignment="Left" Margin="28,200,0,0" VerticalAlignment="Top" Width="120" Height="22" Click="btnAddImage_Click"/>

@@ -48,5 +48,22 @@ namespace YummyApp
 
             txtRecipeIngrediensList.Text = recipeIngredients;
         }
+
+        private void btnPrint_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDialog myPrintDialog = new PrintDialog();
+            if (myPrintDialog.ShowDialog() == true)
+            {
+                myPrintDialog.PrintVisual(this, recipe.Name);
+            }
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            AddRecipe addRecipe = new AddRecipe(this.recipe.RecipeId);
+            addRecipe.labelNewRecipe.Content = "Edit Recipe";
+            addRecipe.Title = "Edit Recipe";
+            addRecipe.ShowDialog();
+        }
     }
 }

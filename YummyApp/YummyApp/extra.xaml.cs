@@ -120,6 +120,8 @@ namespace YummyApp
             if (dgRecipes.SelectedItem != null)
             {
                 PrintRecipe printRecipe = new PrintRecipe((dgRecipes.SelectedItem as dynamic).RecipeId);
+                string recipeName = (dgRecipes.SelectedItem as dynamic).Name;
+                printRecipe.Title = recipeName;
                 printRecipe.ShowDialog();
             }
             else
