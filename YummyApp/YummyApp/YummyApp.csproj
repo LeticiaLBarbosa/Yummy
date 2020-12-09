@@ -113,10 +113,8 @@
     <Compile Include="yummyDatabase.cs">
       <DependentUpon>yummyDatabase.dbml</DependentUpon>
     </Compile>
-    <Compile Include="yummyDatabase.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>yummyDatabase.dbml</DependentUpon>
+    <Compile Include="ShoppingList.xaml.cs">
+      <DependentUpon>ShoppingList.xaml</DependentUpon>
     </Compile>
     <Page Include="AddRecipe.xaml">
       <SubType>Designer</SubType>
@@ -199,7 +197,6 @@
     </None>
     <None Include="yummyDatabase.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>yummyDatabase.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="yummyDatabase.dbml.layout">
