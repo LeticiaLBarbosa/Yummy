@@ -7,14 +7,8 @@
         mc:Ignorable="d"
         Title="extra" Height="590" Width="840">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="495*"/>
-            <ColumnDefinition Width="69*"/>
-            <ColumnDefinition Width="20*"/>
-            <ColumnDefinition Width="250*"/>
-        </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dgRecipes" HorizontalAlignment="Left" Height="441" Margin="25,40,0,0" VerticalAlignment="Top" Width="775" Grid.ColumnSpan="4" SelectionChanged="DgRecipes_SelectionChanged"/>
-        <Button x:Name="btnAddRecipe" Content="Add Recipe" HorizontalAlignment="Left" Margin="25,492,0,0" VerticalAlignment="Top" Width="91" Click="btnAddRecipe_Click" />
+        <DataGrid x:Name="dgRecipes" HorizontalAlignment="Left" Height="441" Margin="25,40,0,0" VerticalAlignment="Top" Width="775" SelectionChanged="dgRecipes_SelectionChanged_1"/>
+        <Button x:Name="btnAddRecipe"  Content="Add Recipe" HorizontalAlignment="Left" Margin="25,492,0,0" VerticalAlignment="Top" Width="91" Click="btnAddRecipe_Click" />
         <Button x:Name="btnUpdateRecipe" Content="Update Recipe" HorizontalAlignment="Left" Margin="135,492,0,0" VerticalAlignment="Top" Width="91" Click="btnUpdateRecipe_Click"/>
         <Button x:Name="btnDeleteRecipe" Content="Delete Recipe" HorizontalAlignment="Left" Margin="248,492,0,0" VerticalAlignment="Top" Width="91" Click="btnDeleteRecipe_Click"/>
         <Button x:Name="btnPrintRecipe" Content="Print Recipe" HorizontalAlignment="Left" Margin="358,492,0,0" VerticalAlignment="Top" Width="91" Click="btnPrintRecipe_Click"/>
