@@ -121,7 +121,7 @@ namespace YummyApp
             try
             {
                 Catalog ct = new Catalog();
-                ct.Show();
+                this.Content = ct;
                 this.Close();
             }catch(Exception ex)
             {

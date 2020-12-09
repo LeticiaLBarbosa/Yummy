@@ -473,7 +473,6 @@ namespace YummyApp
 		}
 	}
 	
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserRecipe")]
 	public partial class UserRecipe : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -486,8 +485,6 @@ namespace YummyApp
 		
 		private int _RecipeId;
 		
-		private System.Nullable<char> _Favorite;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -498,8 +495,6 @@ namespace YummyApp
     partial void OnUserIdChanged();
     partial void OnRecipeIdChanging(int value);
     partial void OnRecipeIdChanged();
-    partial void OnFavoriteChanging(System.Nullable<char> value);
-    partial void OnFavoriteChanged();
     #endregion
 		
 		public UserRecipe()
@@ -563,26 +558,6 @@ namespace YummyApp
 					this._RecipeId = value;
 					this.SendPropertyChanged("RecipeId");
 					this.OnRecipeIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Favorite", DbType="Char(1)")]
-		public System.Nullable<char> Favorite
-		{
-			get
-			{
-				return this._Favorite;
-			}
-			set
-			{
-				if ((this._Favorite != value))
-				{
-					this.OnFavoriteChanging(value);
-					this.SendPropertyChanging();
-					this._Favorite = value;
-					this.SendPropertyChanged("Favorite");
-					this.OnFavoriteChanged();
 				}
 			}
 		}

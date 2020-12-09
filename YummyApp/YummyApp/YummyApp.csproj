@@ -51,10 +51,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
-      <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -80,6 +81,9 @@
     <Compile Include="Catalog.xaml.cs">
       <DependentUpon>Catalog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RecipesCatalogPage.xaml.cs">
+      <DependentUpon>RecipesCatalogPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CategoryForm.xaml.cs">
       <DependentUpon>CategoryForm.xaml</DependentUpon>
     </Compile>
@@ -89,11 +93,18 @@
     <Compile Include="extra.xaml.cs">
       <DependentUpon>extra.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CategoryPage.xaml.cs">
+      <DependentUpon>CategoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MediaData.cs" />
     <Compile Include="ModifyCategory.xaml.cs">
       <DependentUpon>ModifyCategory.xaml</DependentUpon>
     </Compile>
     <Compile Include="PrintRecipe.xaml.cs">
       <DependentUpon>PrintRecipe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CategoriesCatalogPage.xaml.cs">
+      <DependentUpon>CategoriesCatalogPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="yummyDatabase.cs">
       <DependentUpon>yummyDatabase.dbml</DependentUpon>
@@ -110,6 +121,10 @@
     <Page Include="Catalog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RecipesCatalogPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="CategoryForm.xaml">
       <SubType>Designer</SubType>
@@ -135,6 +150,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="CategoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ModifyCategory.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -142,6 +161,10 @@
     <Page Include="PrintRecipe.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CategoriesCatalogPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +203,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image.png" />
+    <Resource Include="add.png" />
+    <Resource Include="pencil.png" />
+    <Resource Include="delete.png" />
+    <Resource Include="view.png" />
+    <Resource Include="back.png" />
     <Content Include="yummyDatabase.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
