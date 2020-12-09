@@ -18,11 +18,16 @@ namespace YummyApp
     /// <summary>
     /// Interaction logic for CategoryForm.xaml
     /// </summary>
+    /// author of the code : Rajwinder Kaur
+    /// About the code : display details about particular category.
+    ///                  Show its image name and Recipes under that particular Category.
     public partial class CategoryForm : Window
     {
         yummyDatabaseDataContext dc = new yummyDatabaseDataContext();
-        BitmapImage image;
+        BitmapImage image; //for image
         Category category = new Category();
+
+        //Pass Category object in constructor to load details of selected category
         public CategoryForm(Category categoryObj)
         {
             InitializeComponent();
@@ -40,14 +45,29 @@ namespace YummyApp
                 category.CategoryId = categoryObj.CategoryId;
                 if (categoryObj.CategoryImage != null)
                 {
+                    // to load image
                     image = new BitmapImage();
                     image.BeginInit();
                     image.StreamSource = new MemoryStream(categoryObj.CategoryImage.ToArray());
                     image.EndInit();
                     categoryImg.Source = image;
                 }
-                //get recipes of category
-                recipeDataGrid.ItemsSource = from R in dc.Recipes where R.Category == categoryObj.CategoryId select new { Receipe = R.Name };
+
+                //Hide grid and Total Recipe label if there is no Recipe in particular category
+                recipesUnderCg.Visibility = Visibility.Hidden;
+                    recipeDataGrid.Visibility = Visibility.Hidden;
+
+                // get Recipes in paticilar category
+                var totalRecipes = (from R in dc.Recipes where R.Category == categoryObj.CategoryId select R).Count();
+                if (totalRecipes != 0)
+                {
+                    // Show repeipe label and grid if recipe exist in particualr category
+                    recipesUnderCg.Visibility = Visibility.Visible;
+                    recipeDataGrid.Visibility = Visibility.Visible;
+
+                    //get recipes of category in Ascending order
+                    recipeDataGrid.ItemsSource = from R in dc.Recipes where R.Category == categoryObj.CategoryId orderby R.Name select new { Receipe = R.Name };
+                }
             } catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, " error");
@@ -62,6 +82,7 @@ namespace YummyApp
             {
                 if (category.CategoryId != 0)
                 {
+                    //pass select category id for editing in constructor 
                     ModifyCategory mc = new ModifyCategory(category.CategoryId);
                     mc.Show();
                     this.Close();
@@ -80,6 +101,7 @@ namespace YummyApp
                 ModifyCategory mc = new ModifyCategory();
                 mc.modifyCategory.Content = "ADD";
                 mc.modifyName.Focus();
+                //Hide Date Labels on Adding Category
                 mc.LMlabel.Visibility = Visibility.Hidden;
                 mc.LMdateLabel.Visibility = Visibility.Hidden;
                 mc.LMtimeLabel.Visibility = Visibility.Hidden;
@@ -93,6 +115,7 @@ namespace YummyApp
             }
         }
 
+        //Close current form and redirect to Catalog form
         private void closeCategory_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -104,7 +127,6 @@ namespace YummyApp
             {
                 MessageBox.Show(ex.Message, " error");
             }
-           
         }
     }
 }
