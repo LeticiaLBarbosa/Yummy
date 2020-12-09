@@ -20,12 +20,16 @@ namespace YummyApp
     /// <summary>
     /// Interaction logic for ModifyCategory.xaml
     /// </summary>
+    ///  author of the code : Rajwinder Kaur
+    /// About the code : display details about particular category for editing.
+    ///                  For Adding Category also.
     public partial class ModifyCategory : Window
     {
         yummyDatabaseDataContext dc = new yummyDatabaseDataContext();
-        BitmapImage image;
+        BitmapImage image; //for image
         Category categoryObj = new Category();
-        public static int textChanged; //to check if Category text box value is changed at update time
+
+        //CategoryId pass in case of editing
         public ModifyCategory(int? categoryId = null)
         {
             InitializeComponent();
@@ -40,6 +44,7 @@ namespace YummyApp
             try
             {
                 modifyName.Focus();
+                //based on Id get the details from Category table
                 categoryObj = dc.Categories.Where(categoryObj => categoryObj.CategoryId == categoryId).Single(); ;
                 modifyName.Text = categoryObj.CategoryName;
 
@@ -50,9 +55,10 @@ namespace YummyApp
                     string[] spiltDate = categoryDate.Split(' ');
                     LMdate.Text = spiltDate[0];
                     LMtime.Text = spiltDate[1] + spiltDate[2];
-                    modifyCategory.Content = "UPDATE";
+                    modifyCategory.Content = "Update";
                 }
 
+                //load the image from table
                 if (categoryObj.CategoryImage != null)
                 {
                     image = new BitmapImage();
@@ -74,12 +80,13 @@ namespace YummyApp
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Title = "Select a Category photo";
+                //apply a filter, only jpg,jpeg,png file going to show
                 openFileDialog.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|Portable Network Graphic (*.png)|*.png";
                 if ((bool)openFileDialog.ShowDialog())
                 {
                     image = new BitmapImage();
                     image.BeginInit();
-                    image.StreamSource = System.IO.File.OpenRead(openFileDialog.FileName);
+                    image.StreamSource = File.OpenRead(openFileDialog.FileName);
                     image.EndInit();
                     modifyImage.Source = image;
                 }
@@ -116,24 +123,25 @@ namespace YummyApp
                 }
                 else
                 {
-                    saveRecord();
+                    saveRecord(); //function call for assign coming values to caegory object field
+
                     //Upadte Record if category Id exists
                     if (categoryObj.CategoryId != 0)
                     {
                         //get category name on that edit Id
                         string Cname = (from C in dc.Categories where C.CategoryId == categoryObj.CategoryId select C.CategoryName).Single(); 
-                        // Check if textbox is modified
-                        if (modifyName.Text.ToUpper() != Cname)
+                        // Check if Category name is changed
+                        if(modifyName.Text.ToUpper() != Cname)
                         {
                             var category_exist = (from C in dc.Categories where C.CategoryName == modifyName.Text.ToUpper() select C).Count();
+                            //if no record exist with enter name then upadte operation going to perform with image and name
                             if (category_exist == 0)
                             {
                                 dc.SubmitChanges();
                                 MessageBox.Show("Category Record is modified");
                             }
-                        }
-                        else
-                        {
+                        } else
+                        { //if name exist with enter name then image going to update
                             dc.SubmitChanges();
                             MessageBox.Show("Category Record is modified");
                         }      
@@ -141,6 +149,7 @@ namespace YummyApp
                     }
                     else
                     {
+                        //For Adding new category
                         var category_exist = (from C in dc.Categories where C.CategoryName == modifyName.Text.ToUpper() select C).Count();
                         if (category_exist == 1)
                         {
@@ -152,11 +161,11 @@ namespace YummyApp
                             MessageBox.Show("New Category Record " + modifyName.Text.ToUpper() + " Created");
                         }
                     }
+                    //after addition and updation category form will open with latest entry
+                    CategoryForm cf = new CategoryForm(categoryObj);
+                    cf.Show();
+                    this.Close();
                 }
-                //after additin and updation category form will open with latest entry
-                CategoryForm cf = new CategoryForm(categoryObj);
-                cf.Show();
-                this.Close();
             }
             catch (Exception ex)
             {
@@ -164,7 +173,7 @@ namespace YummyApp
             }
         }
 
-        //for saving image and category text name
+        //for store incomming image,category text name, Modify Date into category object
         private void saveRecord()
         {
             try
@@ -197,10 +206,20 @@ namespace YummyApp
             modifyName.Foreground = Brushes.Black;       
         }
 
-        //to close form
+        //to close form and open catalog form
         private void closeModifyForm_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            try
+            {
+                Catalog ct = new Catalog();
+                ct.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " error");
+            }
+
         }
     }
 }

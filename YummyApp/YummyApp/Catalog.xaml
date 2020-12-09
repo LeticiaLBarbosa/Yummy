@@ -10,6 +10,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
             <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
@@ -26,12 +28,28 @@
         </Grid.RowDefinitions>
         <Label Grid.Column="1" Margin="10,0,0,0" HorizontalAlignment="Left" Grid.Row="1" Content="My Category" VerticalAlignment="Center" FontWeight="Bold" FontSize="24" Height="62"/>
         <Label Grid.Column="1" Margin="5" HorizontalAlignment="Left" Grid.Row="2" Content="Categories" VerticalAlignment="Center" FontSize="18"/>
-        <ComboBox x:Name="searchCategory" Grid.Column="1" Margin="5,0,0,5" HorizontalAlignment="Left" Grid.Row="3" Text="Search Category" VerticalAlignment="Bottom" Width="300" Grid.ColumnSpan="2" FontSize="12" Padding="5" SelectionChanged="categorySelectedFromComboBox" FontFamily="Verdana"/>
-
-        <Label Grid.Column="1" Margin="10,157,0,191" HorizontalAlignment="Left" Grid.Row="7" Content="Recipes" VerticalAlignment="Center" FontSize="18" RenderTransformOrigin="0.57,2.849"/>
-        <TextBox Grid.Column="1" Margin="10,214,0,138" HorizontalAlignment="Left" Grid.Row="7" Text="Search Recipe" VerticalAlignment="Center" Width="300" FontSize="12" Padding="5" Height="30"/>
+        <TextBox Grid.Column="1" Margin="5" HorizontalAlignment="Left" Grid.Row="3" Text="Search Category" VerticalAlignment="Center" Width="300" Grid.ColumnSpan="2" FontSize="12" Padding="5"/>
+        <Button Name="SearchCategory" Content="Search" Grid.Column="3" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="75" Click="SearchCategory_Click"/>
+        <ListView x:Name="CategoriesCarousel" VerticalAlignment="Top" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" MouseDoubleClick="SearchCategory_Click">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="5"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Image Height="50" Source="{Binding ImageData}" VerticalAlignment="Top"/>
+                        <TextBlock Text="{Binding Title}" VerticalAlignment="Bottom"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Grid.Column="1" Margin="5" HorizontalAlignment="Left" Grid.Row="5" Content="Recipes" VerticalAlignment="Center" FontSize="18"/>
+        <TextBox Grid.Column="1" Margin="5" HorizontalAlignment="Left" Grid.Row="6" Text="Search Recipe" VerticalAlignment="Center" Width="300" Grid.ColumnSpan="3" FontSize="12" Padding="5"/>
+        <Image  Margin="10" Grid.Column="1" Grid.Row="7" Height="100" Width="100" RenderTransformOrigin="0.485,0.514" VerticalAlignment="Top"/>
         <Label Content="Recipe Title" Grid.Column="1" Grid.Row="7" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-        <DataGrid x:Name="categoryDataGrid" HorizontalAlignment="Left" Height="126" VerticalAlignment="Top" Width="777" IsReadOnly="True" Margin="5,10,0,0" Grid.Row="7" Grid.Column="1" SelectionChanged="categoryDataGrid_SelectionChanged" FontSize="12" FontFamily="Verdana" RowHeight="25"/>
+        <Button Grid.ColumnSpan="2" Content="Close" Grid.Column="4" HorizontalAlignment="Left" Margin="308.8,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="74" Click="Button_Click"/>
 
     </Grid>
 </Window>
