@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="yummyDatabase" Class="yummyDatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\yummyDatabase.mdf;Integrated Security=True" SettingsObjectName="YummyApp.Properties.Settings" SettingsPropertyName="yummyDatabaseConnectionString1" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Category" Member="Categories">
-    <Type Name="Category">
-      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="CategoryName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Association Name="Category_Recipe" Member="Recipes" ThisKey="CategoryId" OtherKey="Category" Type="Recipe" />
-      <Association Name="Category_UserCategory" Member="UserCategories" ThisKey="CategoryId" OtherKey="CategoryId" Type="UserCategory" />
+  <Table Name="dbo.Ingredient" Member="Ingredients">
+    <Type Name="Ingredient">
+      <Column Name="IngredientId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Ingredient_RecipeIngredient" Member="RecipeIngredients" ThisKey="IngredientId" OtherKey="IngredientId" Type="RecipeIngredient" />
     </Type>
   </Table>
   <Table Name="dbo.Recipe" Member="Recipes">
@@ -22,13 +21,6 @@
       <Association Name="Category_Recipe" Member="Category1" ThisKey="Category" OtherKey="CategoryId" Type="Category" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Ingredient" Member="Ingredients">
-    <Type Name="Ingredient">
-      <Column Name="IngredientId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Ingredient_RecipeIngredient" Member="RecipeIngredients" ThisKey="IngredientId" OtherKey="IngredientId" Type="RecipeIngredient" />
-    </Type>
-  </Table>
   <Table Name="dbo.RecipeIngredient" Member="RecipeIngredients">
     <Type Name="RecipeIngredient">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -37,24 +29,7 @@
       <Column Name="Quantity" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="Measurement" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Association Name="Ingredient_RecipeIngredient" Member="Ingredient" ThisKey="IngredientId" OtherKey="IngredientId" Type="Ingredient" IsForeignKey="true" />
-      <Association Name="Recipe_RecipeIngredient" Member="Recipe" ThisKey="RecipeId" OtherKey="RecipeId" Type="Recipe" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.[User]" Member="Users">
-    <Type Name="User">
-      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="User_UserCategory" Member="UserCategories" ThisKey="UserId" OtherKey="UserId" Type="UserCategory" />
-      <Association Name="User_UserRecipe" Member="UserRecipes" ThisKey="UserId" OtherKey="UserId" Type="UserRecipe" />
-    </Type>
-  </Table>
-  <Table Name="dbo.UserCategory" Member="UserCategories">
-    <Type Name="UserCategory">
-      <Column Name="UserCategoryId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Category_UserCategory" Member="Category" ThisKey="CategoryId" OtherKey="CategoryId" Type="Category" IsForeignKey="true" />
-      <Association Name="User_UserCategory" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+      <Association Name="Recipe_RecipeIngredient" Member="Recipe" Storage="_Recipe1" ThisKey="RecipeId" OtherKey="RecipeId" Type="Recipe" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.UserRecipe" Member="UserRecipes">
@@ -63,7 +38,15 @@
       <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="RecipeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Favorite" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Association Name="User_UserRecipe" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Category" Member="Categories">
+    <Type Name="Category">
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryImage" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Category_Recipe" Member="Recipes" ThisKey="CategoryId" OtherKey="Category" Type="Recipe" />
     </Type>
   </Table>
 </Database>

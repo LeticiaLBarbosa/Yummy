@@ -27,6 +27,7 @@ namespace YummyApp
         Recipe recipe;
         List<RecipeIngredient> recipeIngredientsToDelete = new List<RecipeIngredient>();
 
+        //if user is editing a recipe, the recipe id is passed in the constructor
         public AddRecipe(int? recipeId = null)
         {
             InitializeComponent();
@@ -184,15 +185,22 @@ namespace YummyApp
         //this button adds a recipe ingredient to the recipe ingredient datagrid and resets the text boxes
         private void btnAddRecipeIngredient_Click(object sender, RoutedEventArgs e)
         {
-            RecipeIngredient recipeIngredient = new RecipeIngredient();
-            recipeIngredient.Ingredient = new Ingredient() { Name = txtRecipeIngredientIngredient.Text };
-            recipeIngredient.Recipe = recipe;
-            recipeIngredient.Quantity = Convert.ToDouble(txtRecipeIngredientQuantity.Text);
-            recipeIngredient.Measurement = cbRecipeIngredientMeasurement.Text;
-            recipe.RecipeIngredients.Add(recipeIngredient);
-            dgRecipeIngredients.ItemsSource = recipe.RecipeIngredients.Select(ingredient => new { ingredient.Id, ingredient.Quantity, ingredient.Measurement, Ingredient = ingredient.Ingredient.Name });
-            txtRecipeIngredientQuantity.Text = "";
-            txtRecipeIngredientIngredient.Text = "";
+            if (txtRecipeIngredientQuantity.Text != "" && cbRecipeIngredientMeasurement.Text != ""  && txtRecipeIngredientIngredient.Text != "")
+            {
+                RecipeIngredient recipeIngredient = new RecipeIngredient();
+                recipeIngredient.Ingredient = new Ingredient() { Name = txtRecipeIngredientIngredient.Text };
+                recipeIngredient.Recipe = recipe;
+                recipeIngredient.Quantity = Convert.ToDouble(txtRecipeIngredientQuantity.Text);
+                recipeIngredient.Measurement = cbRecipeIngredientMeasurement.Text;
+                recipe.RecipeIngredients.Add(recipeIngredient);
+                dgRecipeIngredients.ItemsSource = recipe.RecipeIngredients.Select(ingredient => new { ingredient.Id, ingredient.Quantity, ingredient.Measurement, Ingredient = ingredient.Ingredient.Name });
+                txtRecipeIngredientQuantity.Text = "";
+                txtRecipeIngredientIngredient.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Please fill in all ingredient fields.", "Add Ingredient");
+            }
         }
 
         //method to edit a recipe ingredient
@@ -201,7 +209,8 @@ namespace YummyApp
             //if the user has selected a recipe ingredient from the datagrid a new window will open with the information from ingredient user wants to edit
             if (dgRecipeIngredients.SelectedItem != null)
             {
-                RecipeIngredient recipeIngredient = recipe.RecipeIngredients.Single(ri => ri.Id == (dgRecipeIngredients.SelectedItem as dynamic).Id);
+                //calls method get recipeIngredient to set value of recipeIngredient
+                RecipeIngredient recipeIngredient = getRecipeIngredient(dgRecipeIngredients.SelectedItem);
                 EditRecipeIngredients edit = new EditRecipeIngredients(recipeIngredient);
                 edit.ShowDialog();
                 dgRecipeIngredients.ItemsSource = recipe.RecipeIngredients.Select(ingredient => new { ingredient.Id, ingredient.Quantity, ingredient.Measurement, Ingredient = ingredient.Ingredient.Name });
@@ -213,7 +222,7 @@ namespace YummyApp
         }
 
         //method to delete Recipe ingredient from recipe ingredient table
-        //it removes the ingredient from the datagrid and adds it to the list of ingredients to be deleted once the user saves the changes to the recipe.
+        //it removes the ingredient from the datagrid and if ingredien has an id != 0 it is added to the list of ingredients to be deleted once the user saves the changes to the recipe.
         //if user does not save changes to recipe no changes to ingredients will be saved.
         private void btnAddrecipeDeleteRecipeIngredient_Click(object sender, RoutedEventArgs e)
         {
@@ -225,9 +234,12 @@ namespace YummyApp
 
                 if (result == MessageBoxResult.Yes)
                 {
-                    var recipeIngredient = recipe.RecipeIngredients.Single(ri => ri.Id == (dgRecipeIngredients.SelectedItem as dynamic).Id);
+                    var recipeIngredient = getRecipeIngredient(dgRecipeIngredients.SelectedItem);
                     recipe.RecipeIngredients.Remove(recipeIngredient);
-                    recipeIngredientsToDelete.Add(recipeIngredient);
+                    if (recipeIngredient.Id != 0)
+                    {
+                        recipeIngredientsToDelete.Add(recipeIngredient);
+                    }
                     dgRecipeIngredients.ItemsSource = recipe.RecipeIngredients.Select(ingredient => new { ingredient.Id, ingredient.Quantity, ingredient.Measurement, Ingredient = ingredient.Ingredient.Name });
                 }            
             }
@@ -235,6 +247,28 @@ namespace YummyApp
             {
                 MessageBox.Show("Please select a ingredient to delete.", "Delete Ingredient");
             }
+        }
+
+        //method that gets recipeIngredients from datagrid that havent been saved so they can be edited or deleted.
+        //since before saving their id's are all 0, we have to ckeck quantity, measurement and ingredient name to select recipeIngredient 
+        private RecipeIngredient getRecipeIngredient(dynamic dataGridObject)
+        {
+            RecipeIngredient recipeIngredient;
+
+            if (dataGridObject.Id == 0)
+            {
+                recipeIngredient = recipe.RecipeIngredients.First(
+                ri => ri.Id == dataGridObject.Id &&
+                ri.Quantity == dataGridObject.Quantity &&
+                ri.Measurement == dataGridObject.Measurement &&
+                ri.Ingredient.Name == dataGridObject.Ingredient
+                );
+            }
+            else
+            {
+                recipeIngredient = recipe.RecipeIngredients.Single(ri => ri.Id == dataGridObject.Id);
+            }
+            return recipeIngredient;
         }
     }
 }
