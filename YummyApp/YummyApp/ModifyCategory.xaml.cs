@@ -212,7 +212,7 @@ namespace YummyApp
             try
             {
                 Catalog ct = new Catalog();
-                ct.Show();
+                //ct.Show();
                 this.Close();
             }
             catch (Exception ex)
