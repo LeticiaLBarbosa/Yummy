@@ -21,7 +21,7 @@ namespace YummyApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace YummyApp
         private void GoToMyCatalogPage(object sender, RoutedEventArgs e)
         {
             Catalog catalogWindow = new Catalog();
-            catalogWindow.Show();
+            this.Content = catalogWindow;
         }
 
         private void GoToMyCategoryPage(object sender, RoutedEventArgs e)

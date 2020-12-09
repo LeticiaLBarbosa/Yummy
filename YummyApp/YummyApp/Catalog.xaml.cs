@@ -1,27 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
-using System.Data.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Microsoft.Win32;
-using System.Drawing;
+using System.Windows.Controls;
 
 namespace YummyApp
 {
     /// <summary>
     /// Interaction logic for Catalog.xaml
     /// </summary>
-    public partial class Catalog : Window
+    public partial class Catalog : Page
     {
         yummyDatabaseDataContext dc;
         List<MediaData> myCategories;
@@ -30,7 +21,7 @@ namespace YummyApp
         List<Recipe> recTable;
 
         public Catalog()
-        { 
+        {
             InitializeComponent();
             dc = new yummyDatabaseDataContext();
             ShowCategories();
@@ -53,7 +44,7 @@ namespace YummyApp
                 myRecipes.Add(cnt);
             }
         }
-        
+
         private void loadDataToDisplay(List<Category> tab)
         {
             myCategories = new List<MediaData>();
@@ -72,12 +63,12 @@ namespace YummyApp
 
         private void ShowCategories()
         {
-           var query = (from Cat in dc.Categories orderby Cat.CategoryName ascending select Cat).Take(5);
+            var query = (from Cat in dc.Categories orderby Cat.CategoryName ascending select Cat).Take(5);
             catTable = query.ToList();
             loadDataToDisplay(catTable);
             CategoriesCarousel.ItemsSource = myCategories;
         }
-        
+
         private void ShowRecipes()
         {
             var query = (from Rec in dc.Recipes orderby Rec.Name ascending select Rec).Take(4);
@@ -107,7 +98,7 @@ namespace YummyApp
                 printRecipe.ShowDialog();
             }
         }
-        
+
         private void InspectCategory(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (CategoriesCarousel.SelectedItem != null)
@@ -139,14 +130,16 @@ namespace YummyApp
 
         private void SeeMoreRecipesClick(object sender, MouseButtonEventArgs e)
         {
-            extra recipePage = new extra();
-            recipePage.Show();
+            RecipesCatalogPage recipesCatalogPage = new RecipesCatalogPage();
+            var parent = this.Parent as Window;
+            parent.Content = recipesCatalogPage;
         }
 
         private void SeeMoreCategoriesClick(object sender, MouseButtonEventArgs e)
         {
-            CategoryPage categoryPage = new CategoryPage();
-            categoryPage.Show();
+            CategoriesCatalogPage categoriesCatalogPage = new CategoriesCatalogPage();
+            var parent = this.Parent as Window;
+            parent.Content = categoriesCatalogPage;
         }
     }
 }
