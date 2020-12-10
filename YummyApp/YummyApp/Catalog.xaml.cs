@@ -54,6 +54,8 @@ namespace YummyApp
                 // add instance of MediaData to the list that will be used inside de carousel
                 myRecipes.Add(cnt);
             }
+
+            RecipesCarousel.ItemsSource = myRecipes; // setting the carousel data
         }
 
         // method overloaded to load the data from the categories table, and build an object to display inside the category carousel
@@ -76,26 +78,27 @@ namespace YummyApp
                 // add instance of MediaData to the list that will be used inside de carousel
                 myCategories.Add(cnt);
             }
+            CategoriesCarousel.ItemsSource = myCategories; // setting the carousel data
         }
 
         // method that load the data from the table and set the carousel to the retrieved data
         private void ShowCategories()
         {
+            dc = new yummyDatabaseDataContext();
             // query that retrieves only the first 5 elements from the Category table ordered by the Category Name
             var query = (from Cat in dc.Categories orderby Cat.CategoryName ascending select Cat).Take(5);
             catTable = query.ToList();
             loadDataToDisplay(catTable); // loading the data in a proper format to display
-            CategoriesCarousel.ItemsSource = myCategories; // setting the carousel data
         }
 
         // method that load the data from the table and set the carousel to the retrieved data
         private void ShowRecipes()
         {
+            dc = new yummyDatabaseDataContext();
             // query that retrieves only the first 4 elements from the Recipe table ordered by the Name
             var query = (from Rec in dc.Recipes orderby Rec.Name ascending select Rec).Take(4);
             recTable = query.ToList();
             loadDataToDisplay(recTable); // loading the data in a proper format to display
-            RecipesCarousel.ItemsSource = myRecipes; // setting the carousel data
         }
 
         // method called when an item is selected from the Recipe Carousel
@@ -128,8 +131,6 @@ namespace YummyApp
             var tab = (from C in dc.Categories where C.CategoryName.ToUpper().Contains(SearchCategoryInput.Text.ToUpper()) orderby C.CategoryName ascending select C).Take(5);
 
             loadDataToDisplay(tab.ToList()); // load all the filtered data
-
-            CategoriesCarousel.ItemsSource = myCategories; // load the filtered data to the Carousel 
         }
 
         // method called when the user click on the Search Recipe button
@@ -139,8 +140,6 @@ namespace YummyApp
             var tab = (from R in dc.Recipes where R.Name.ToUpper().Contains(SearchRecipeInput.Text.ToUpper()) orderby R.Name ascending select R).Take(4);
 
             loadDataToDisplay(tab.ToList()); // load all the filtered data
-
-            RecipesCarousel.ItemsSource = myRecipes; // load the filtered data to the Carousel 
         }
 
         // method called when the user click on the "See More" link after Category Carousel
