@@ -231,6 +231,7 @@
     <Resource Include="halloween.jpg" />
     <Resource Include="christmas.jpg" />
     <Resource Include="daspic.jpg" />
+    <Resource Include="bg1.jpg" />
     <Content Include="yummyDatabase.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
