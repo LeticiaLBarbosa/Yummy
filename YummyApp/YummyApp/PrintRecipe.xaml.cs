@@ -22,36 +22,15 @@ namespace YummyApp
     //Carolina Naoum Junqueira
     public partial class PrintRecipe : Window
     {
-        yummyDatabaseDataContext dc = new yummyDatabaseDataContext();
+        yummyDatabaseDataContext dc;
         Recipe recipe;
         BitmapImage bitmapImage;
 
         //This method id used to load the recipe on the window
-        public PrintRecipe(int? recipeId = null)
+        public PrintRecipe(int recipeId)
         {
             InitializeComponent();
-            recipe = dc.Recipes.Where(recipe => recipe.RecipeId == recipeId).Single();
-
-
-            if (recipe.Image != null)
-            {
-                bitmapImage = new BitmapImage();
-                bitmapImage.BeginInit();
-                bitmapImage.StreamSource = new MemoryStream(recipe.Image.ToArray());
-                bitmapImage.EndInit();
-                imgRecipePhoto.Source = bitmapImage;
-            }
-            labelRecipeName.Content = recipe.Name;
-            txtRecipeDescription.Text = recipe.Description;
-            txtRecipePrepTime.Text = recipe.PrepTime.ToString();
-            txtRecipeServings.Text = recipe.Serving.ToString();
-            txtRecipeDirections.Text = recipe.Directions;
-
-            string recipeIngredients = string.Empty; 
-            foreach (var recipeIngredient in recipe.RecipeIngredients)
-                recipeIngredients += $"{recipeIngredient.Quantity} {recipeIngredient.Measurement} {recipeIngredient.Ingredient.Name}\n";
-
-            txtRecipeIngrediensList.Text = recipeIngredients;
+            loadRecipe(recipeId);
         }
 
         //Opens the print dialog and allows user to print the recipe
@@ -68,12 +47,37 @@ namespace YummyApp
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            AddRecipe addRecipe = new AddRecipe(this.recipe.RecipeId);
+            AddRecipe addRecipe = new AddRecipe(recipe.RecipeId);
             addRecipe.labelNewRecipe.Content = "Edit Recipe";
             addRecipe.Title = "Edit Recipe";
-            addRecipe.ShowDialog();
-            this.Show();
-            
+            var result = addRecipe.ShowDialog();
+            loadRecipe(recipe.RecipeId);        
+        }
+
+        private void loadRecipe(int recipeId)
+        {
+            dc = new yummyDatabaseDataContext();
+            recipe = dc.Recipes.Where(recipe => recipe.RecipeId == recipeId).Single();
+
+            if (recipe.Image != null)
+            {
+                bitmapImage = new BitmapImage();
+                bitmapImage.BeginInit();
+                bitmapImage.StreamSource = new MemoryStream(recipe.Image.ToArray());
+                bitmapImage.EndInit();
+                imgRecipePhoto.Source = bitmapImage;
+            }
+            labelRecipeName.Content = recipe.Name;
+            txtRecipeDescription.Text = recipe.Description;
+            txtRecipePrepTime.Text = recipe.PrepTime.ToString();
+            txtRecipeServings.Text = recipe.Serving.ToString();
+            txtRecipeDirections.Text = recipe.Directions;
+
+            string recipeIngredients = string.Empty;
+            foreach (var recipeIngredient in recipe.RecipeIngredients)
+                recipeIngredients += $"{recipeIngredient.Quantity} {recipeIngredient.Measurement} {recipeIngredient.Ingredient.Name}\n";
+
+            txtRecipeIngrediensList.Text = recipeIngredients;
         }
     }
 }

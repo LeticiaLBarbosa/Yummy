@@ -71,5 +71,10 @@ namespace YummyApp
         {
             this.Content = new Catalog();
         }
+
+        private void ListViewItem_Selected_1(object sender, RoutedEventArgs e)
+        {
+            this.Content = new extra();
+        }
     }
 }

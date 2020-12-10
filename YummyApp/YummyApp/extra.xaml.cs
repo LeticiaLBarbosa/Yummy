@@ -16,7 +16,7 @@ namespace YummyApp
 {
 
     //Carolina Naoum Junqueira
-    public partial class extra : Window
+    public partial class extra : Page
     {
         yummyDatabaseDataContext dc = new yummyDatabaseDataContext();
 
@@ -134,6 +134,7 @@ namespace YummyApp
             }
         }
 
+        //ShoppingList code by Waqas Bashir
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (dgRecipes.SelectedItem != null)
@@ -155,6 +156,23 @@ namespace YummyApp
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+        //Maitry Patel side Menu code
+        private void ButtonMenuClose_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonMenuOpen.Visibility = Visibility.Visible;
+            ButtonMenuClose.Visibility = Visibility.Collapsed;
+        }
+
+        private void ButtonMenuOpen_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonMenuOpen.Visibility = Visibility.Collapsed;
+            ButtonMenuClose.Visibility = Visibility.Visible;
+        }
+
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+            this.Content = new Catalog();
         }
     }
 }
