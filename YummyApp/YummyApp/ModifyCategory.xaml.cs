@@ -56,6 +56,7 @@ namespace YummyApp
                     LMdate.Text = spiltDate[0];
                     LMtime.Text = spiltDate[1] + spiltDate[2];
                     modifyCategory.Content = "Update";
+
                 }
 
                 //load the image from table
