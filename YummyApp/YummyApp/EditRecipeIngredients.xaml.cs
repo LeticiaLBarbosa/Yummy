@@ -17,6 +17,8 @@ namespace YummyApp
     /// <summary>
     /// Interaction logic for EditRecipeIngredients.xaml
     /// </summary>
+    /// 
+    //Carolina Naoum Junqueira
     public partial class EditRecipeIngredients : Window
     {
         RecipeIngredient _recipeIngredient;
