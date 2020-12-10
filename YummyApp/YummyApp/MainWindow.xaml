@@ -100,7 +100,7 @@
             </StackPanel>
             <ListViewItem Margin="0,300,0,210.4">
                 <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Food"  Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                    <materialDesign:PackIcon Kind="FoodItalian"  Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
                     <TextBlock Text="Recipe" VerticalAlignment="Center" Margin="20 10"/>
                 </StackPanel>
             </ListViewItem>
@@ -126,7 +126,12 @@
         <Image Source="thanksgiving.jpg" Margin="60,351,671.6,31.4"></Image>
         <Image Source="halloween.jpg" Margin="402,351,365.6,31.4"></Image>
         <Image Source="christmas.jpg" Margin="638,351,-32.4,31.4"></Image>
-        <Button Content="Cart" HorizontalAlignment="Left" Height="31" Margin="8,312,0,0" VerticalAlignment="Top" Width="41" Click="Cart_Button_Click"/>
+        <Button HorizontalAlignment="Left" Height="28" Margin="10,312,0,0" VerticalAlignment="Top" Width="39" Click="Cart_Button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="view.png"/>
+            </Button.Background>
+            
+        </Button>
     </Grid>
 
 </Window>
