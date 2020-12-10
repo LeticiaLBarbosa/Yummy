@@ -18,15 +18,20 @@ namespace YummyApp
     /// <summary>
     /// Interaction logic for PrintRecipe.xaml
     /// </summary>
+    /// 
+    //Carolina Naoum Junqueira
     public partial class PrintRecipe : Window
     {
         yummyDatabaseDataContext dc = new yummyDatabaseDataContext();
         Recipe recipe;
         BitmapImage bitmapImage;
+
+        //This method id used to load the recipe on the window
         public PrintRecipe(int? recipeId = null)
         {
             InitializeComponent();
             recipe = dc.Recipes.Where(recipe => recipe.RecipeId == recipeId).Single();
+
 
             if (recipe.Image != null)
             {
@@ -49,6 +54,7 @@ namespace YummyApp
             txtRecipeIngrediensList.Text = recipeIngredients;
         }
 
+        //Opens the print dialog and allows user to print the recipe
         private void btnPrint_Click(object sender, RoutedEventArgs e)
         {
             PrintDialog myPrintDialog = new PrintDialog();
@@ -58,12 +64,16 @@ namespace YummyApp
             }
         }
 
+        //opens the edit recipe window and allows user to edit the recipe before printing
+
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             AddRecipe addRecipe = new AddRecipe(this.recipe.RecipeId);
             addRecipe.labelNewRecipe.Content = "Edit Recipe";
             addRecipe.Title = "Edit Recipe";
             addRecipe.ShowDialog();
+            this.Show();
+            
         }
     }
 }

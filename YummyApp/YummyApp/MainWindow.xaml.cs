@@ -22,26 +22,54 @@ namespace YummyApp
     public partial class MainWindow : Window
     {
 
-        public MainWindow()
+        //public MainWindow()
+        //{
+        //    InitializeComponent();
+        //}
+
+        //private void GoToMyCatalogPage(object sender, RoutedEventArgs e)
+        //{
+        //    Catalog catalogWindow = new Catalog();
+        //    this.Content = catalogWindow;
+        //}
+
+        //private void GoToMyCategoryPage(object sender, RoutedEventArgs e)
+        //{
+        //    CategoryPage categoryPage = new CategoryPage();
+        //    categoryPage.Show();
+        //}
+        //private void GoToMyRecipePage(object sender, RoutedEventArgs e)
+        //{
+        //    extra recipePage = new extra();
+        //    recipePage.Show();
+        //}
+
+
+        private void ButtonLogout_Click(object sender, RoutedEventArgs e)
         {
-            InitializeComponent();
+            Application.Current.Shutdown();
         }
 
-        private void GoToMyCatalogPage(object sender, RoutedEventArgs e)
+        private void ButtonMenuClose_Click(object sender, RoutedEventArgs e)
         {
-            Catalog catalogWindow = new Catalog();
-            this.Content = catalogWindow;
+            ButtonMenuOpen.Visibility = Visibility.Visible;
+            ButtonMenuClose.Visibility = Visibility.Collapsed;
         }
 
-        private void GoToMyCategoryPage(object sender, RoutedEventArgs e)
+        private void ButtonMenuOpen_Click(object sender, RoutedEventArgs e)
         {
-            CategoryPage categoryPage = new CategoryPage();
-            categoryPage.Show();
+            ButtonMenuOpen.Visibility = Visibility.Collapsed;
+            ButtonMenuClose.Visibility = Visibility.Visible;
         }
-        private void GoToMyRecipePage(object sender, RoutedEventArgs e)
+
+        private void Image_ColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
         {
-            extra recipePage = new extra();
-            recipePage.Show();
+
+        }
+
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+            this.Content = new Catalog();
         }
     }
 }
