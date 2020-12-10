@@ -91,6 +91,12 @@
                             <TextBlock Text="Recipe" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
+                    <ListViewItem Height="60" Selected="Cart_Button_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ShoppingBasket"  Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Shopping Cart" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
                 </ListView>
             </StackPanel>
         </Grid>
@@ -128,8 +134,8 @@
                     <Border BorderBrush="#FFD0D0D0" BorderThickness="1" Padding="10">
                         <Grid HorizontalAlignment="Center" Width="200">
                             <StackPanel Margin="0,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="Auto" Height="Auto">
-                                <Image Height="130" Width="150" Source="{Binding ImageData}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0"/>
-                                <TextBlock Text="{Binding Title}" VerticalAlignment="Bottom"/>
+                                <Image Height="50" Source="{Binding ImageData}" VerticalAlignment="Top"/>
+                                <TextBlock Text="{Binding Title}" VerticalAlignment="Top" HorizontalAlignment="Center"/>
                             </StackPanel>
                         </Grid>
                     </Border>

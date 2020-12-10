@@ -116,7 +116,11 @@ namespace YummyApp
 				return this.GetTable<Category>();
 			}
 		}
-	}
+
+     
+
+       
+    }
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ingredient")]
 	public partial class Ingredient : INotifyPropertyChanging, INotifyPropertyChanged
