@@ -43,6 +43,7 @@ namespace YummyApp
         {
             try
             {
+
                 modifyName.Focus();
                 //based on Id get the details from Category table
                 categoryObj = dc.Categories.Where(categoryObj => categoryObj.CategoryId == categoryId).Single(); ;
