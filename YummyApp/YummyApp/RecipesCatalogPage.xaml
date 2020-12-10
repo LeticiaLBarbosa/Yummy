@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:YummyApp"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -10,7 +11,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
@@ -24,19 +25,51 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="10" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left">
-            <Button Name="BackButton" Padding="5" Margin="5,0,5,7.6" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Bottom" Click="BackButton_Click">
-                <DockPanel>
-                    <Image Source="back.png" Height="15" Width="15"/>
-                </DockPanel>
-            </Button>
-            <Label Margin="5" Padding="0" Content="My Catalog" VerticalAlignment="Center" FontWeight="Bold" FontSize="24" />
-        </StackPanel>
+        <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="6" x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="#FFECECED">
+            <StackPanel>
+                <Grid Height="60" Background="White">
+                    <Button x:Name="ButtonMenuClose" Height="60" Width="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="ButtonMenuClose_Click">
+                        <materialDesign:PackIcon Foreground="Gray" Kind="ArrowLeft" Height="25" Width="25"/>
+                    </Button>
+                    <Button x:Name="ButtonMenuOpen" Height="60" Width="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonMenuOpen_Click">
+                        <materialDesign:PackIcon Foreground="Gray" Kind="Menu" Height="25" Width="25"/>
+                    </Button>
+                </Grid>
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="#FF954254">
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ViewDashboard" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Home" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" Selected="ListViewItem_Selected">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Account" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Catalog" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Category" Width="25" Height="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="Category" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="FoodItalian"  Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Recipe" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
+        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Background="#FF954254"/>
+        <Label Grid.Column="1" Margin="5" Padding="0" HorizontalAlignment="Left" Grid.Row="1" Content="My Catalog" VerticalAlignment="Center" FontWeight="Bold" FontSize="24" Foreground="#DDFFFFFF" />
         <Label Grid.Column="1" Margin="5" HorizontalAlignment="Left" Grid.Row="2" Content="Recipes" VerticalAlignment="Center" FontSize="18" Padding="0"/>
-        <TextBox Name="SearchRecipeInput" Grid.Column="1" Margin="5" HorizontalAlignment="Left" Grid.Row="3" Text="Search Recipe" VerticalAlignment="Center" Width="300" FontSize="12" Padding="5"/>
-        <Button Name="SearchRecipe" Content="Search Recipe" Grid.Column="2" HorizontalAlignment="Left" Margin="10" Padding="5" Grid.Row="3" VerticalAlignment="Center" Click="SearchRecipe_Click"/>
-        <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Name="EditRecipeButton" Padding="5" Margin="5, 0" Background="{x:Null}" BorderBrush="{x:Null}" Click="EditRecipeButton_Click">
+        <TextBox Name="SearchRecipeInput" Grid.Column="1" Margin="5" HorizontalAlignment="Left" Grid.Row="3" Text="Search Recipe" VerticalAlignment="Center" Width="300" FontSize="12" Padding="5" CaretBrush="#FF954254" Foreground="#FF954254" SelectionBrush="#FF954254"/>
+        <Button Name="SearchRecipe" Content="Search Recipe" Grid.Column="2" HorizontalAlignment="Left" Margin="10" Padding="5" Grid.Row="3" VerticalAlignment="Center" Click="SearchRecipe_Click" Background="#FF954254" BorderBrush="#FF954254"/>
+        <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Button Name="EditRecipeButton" Padding="5" Margin="5, 0" Background="{x:Null}" BorderBrush="{x:Null}" Height="47" VerticalAlignment="Top" Click="EditRecipeButton_Click" >
                 <DockPanel>
                     <Image Source="pencil.png" Height="15" Width="15"/>
                     <Label VerticalAlignment="center">Edit</Label>
@@ -69,8 +102,8 @@
             </ItemsControl.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="#FFD0D0D0" BorderThickness="1" Padding="5,0">
-                        <Grid HorizontalAlignment="Center" Width="170">
+                    <Border BorderBrush="#FFD0D0D0" BorderThickness="1" Padding="10">
+                        <Grid HorizontalAlignment="Center" Width="200">
                             <StackPanel Margin="0,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" MaxHeight="200">
                                 <Image Height="150" Width="150" Source="{Binding ImageData}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0"/>
                                 <TextBlock Text="{Binding Title}" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="12" Margin="0,5"/>

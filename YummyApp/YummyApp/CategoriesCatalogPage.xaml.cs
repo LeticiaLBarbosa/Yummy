@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿//
+//
+//
+
+using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -85,6 +89,24 @@ namespace YummyApp
             Catalog catalogWindow = new Catalog();
             var parent = this.Parent as Window;
             parent.Content = catalogWindow;
+        }
+
+
+        private void ButtonMenuClose_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonMenuOpen.Visibility = Visibility.Visible;
+            ButtonMenuClose.Visibility = Visibility.Collapsed;
+        }
+
+        private void ButtonMenuOpen_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonMenuOpen.Visibility = Visibility.Collapsed;
+            ButtonMenuClose.Visibility = Visibility.Visible;
+        }
+
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
