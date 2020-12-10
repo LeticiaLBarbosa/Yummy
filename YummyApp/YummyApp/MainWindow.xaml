@@ -126,7 +126,7 @@
         <Image Source="thanksgiving.jpg" Margin="60,351,671.6,31.4"></Image>
         <Image Source="halloween.jpg" Margin="402,351,365.6,31.4"></Image>
         <Image Source="christmas.jpg" Margin="638,351,-32.4,31.4"></Image>
-        <Button HorizontalAlignment="Left" Height="28" Margin="10,312,0,0" VerticalAlignment="Top" Width="39" Click="Cart_Button_Click">
+        <Button HorizontalAlignment="Left" Height="28" Margin="10,316,0,0" VerticalAlignment="Top" Width="39" Click="Cart_Button_Click">
             <Button.Background>
                 <ImageBrush ImageSource="view.png"/>
             </Button.Background>
