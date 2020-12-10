@@ -44,8 +44,7 @@ namespace YummyApp
                 //store categoryId to get at edit time
                 category.CategoryId = categoryObj.CategoryId;
                 if (categoryObj.CategoryImage != null)
-                {
-                    // to load image
+                {  // to load image
                     image = new BitmapImage();
                     image.BeginInit();
                     image.StreamSource = new MemoryStream(categoryObj.CategoryImage.ToArray());
