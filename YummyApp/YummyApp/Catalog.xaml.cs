@@ -162,23 +162,6 @@ namespace YummyApp
             parent.Content = categoriesCatalogPage; // show the Catalog of Categories page
         }
 
-        private void ButtonMenuClose_Click(object sender, RoutedEventArgs e)
-        {
-            ButtonMenuOpen.Visibility = Visibility.Visible;
-            ButtonMenuClose.Visibility = Visibility.Collapsed;
-        }
-
-        private void ButtonMenuOpen_Click(object sender, RoutedEventArgs e)
-        {
-            ButtonMenuOpen.Visibility = Visibility.Collapsed;
-            ButtonMenuClose.Visibility = Visibility.Visible;
-        }
-
-        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void refreshRecipies()
         {
             dc = new yummyDatabaseDataContext();
@@ -196,6 +179,39 @@ namespace YummyApp
             // selecting specific columns to display in the recipe datagrid
             var catTab = (from C in dc.Categories orderby C.CategoryName ascending select C);
             loadDataToDisplay(catTab.ToList());
+        }
+
+        private void ButtonMenuClose_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonMenuOpen.Visibility = Visibility.Visible;
+            ButtonMenuClose.Visibility = Visibility.Collapsed;
+        }
+
+        private void ButtonMenuOpen_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonMenuOpen.Visibility = Visibility.Collapsed;
+            ButtonMenuClose.Visibility = Visibility.Visible;
+        }
+
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+            Catalog catalogPage = new Catalog(); // creates an instance of the Catalog page
+            var parent = this.Parent as Window;
+            parent.Content = catalogPage; // show the Catalog page
+        }
+
+        private void ListViewItem_Selected_1(object sender, RoutedEventArgs e)
+        {
+            extra extraPage = new extra(); // creates an instance of the All Recipes page
+            var parent = this.Parent as Window;
+            parent.Content = extraPage; // show the All Recipes page
+        }
+
+        private void ListViewItem_Selected_2(object sender, RoutedEventArgs e)
+        {
+            MainWindow dashboard = new MainWindow(); // creates an instance of the All Recipes page
+            var parent = this.Parent as Window;
+            parent.Content = dashboard; // show the All Recipes page
         }
     }
 }
