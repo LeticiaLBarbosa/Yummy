@@ -54,7 +54,7 @@
 
         <Button Content="Get Shopping List"  HorizontalAlignment="Left" Margin="93,482,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="200" Click="Generate_Shopping_List"/>
         <DataGrid x:Name="ShopingLIstGrid" HorizontalAlignment="Left" Height="397" Margin="68,63,0,0" VerticalAlignment="Top" Width="556"/>
-        <DataGrid HorizontalAlignment="Left" Height="526" Margin="10,10,0,0" VerticalAlignment="Top" Width="53"/>
+        <DataGrid HorizontalAlignment="Left" Height="546" VerticalAlignment="Top" Width="60" Margin="0,0,0,-0.4"/>
         <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="#FFECECED">
             <StackPanel>
                 <Grid Height="60" Background="White">
