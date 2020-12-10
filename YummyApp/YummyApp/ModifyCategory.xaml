@@ -4,23 +4,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YummyApp"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="ModifyCategory" Height="450" Width="800">
     <Grid>
-        <Label Margin="95,23,0,339" HorizontalAlignment="Left" Content="My Category" VerticalAlignment="Center" FontWeight="Bold" FontSize="24" Height="57"/>
-        <Label Margin="95,110,0,267" HorizontalAlignment="Left" Content="Name :" VerticalAlignment="Center" FontWeight="Bold" FontSize="22"/>
-        <Label Margin="95,184,0,183" HorizontalAlignment="Left" Content="Image :" VerticalAlignment="Center" FontWeight="Bold" FontSize="22" Height="52"/>
-        <Button x:Name="modifyCategory" Content="SUBMIT" HorizontalAlignment="Left" Margin="285,356,0,0" VerticalAlignment="Top" Width="140" Height="33" Click="modifyCategory_Click" FontSize="20"/>
-        <TextBox x:Name="modifyName" HorizontalAlignment="Left" Height="23" Margin="229,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="12" FontFamily="Verdana" TextChanged="categoryTextChanged"/>
-        <Image x:Name="modifyImage" HorizontalAlignment="Left" Height="143" Margin="229,182,0,0" VerticalAlignment="Top" Width="219"/>
-        <Button x:Name="addImage" Content="+" HorizontalAlignment="Left" Margin="505,182,0,0" VerticalAlignment="Top" Width="41" Height="28" Click="addImage_Click" FontSize="20"/>
-        <Button x:Name="deleteImage" Content="-" HorizontalAlignment="Left" Margin="505,243,0,0" VerticalAlignment="Top" Width="41" Height="27" Click="deleteImage_Click" FontSize="20" />
-        <Button x:Name="closeModifyForm" Content="CLOSE" HorizontalAlignment="Left" Margin="647,29,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="125" Click="closeModifyForm_Click"/>
-        <Label x:Name="LMlabel" Margin="605,79,0,297" HorizontalAlignment="Left" Content="Last Modify:" VerticalAlignment="Center" FontSize="24" Height="43" Width="167"/>
-        <Label x:Name="LMdateLabel" Margin="605,127,0,253" HorizontalAlignment="Left" Content="Date:" VerticalAlignment="Center" FontSize="18" Height="39"/>
-        <Label x:Name="LMtimeLabel" Margin="605,171,0,209" HorizontalAlignment="Left" Content="Time:" VerticalAlignment="Center" FontSize="18" Height="39"/>
-        <TextBlock x:Name="LMdate" HorizontalAlignment="Left" Margin="661,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Height="25" Width="111"/>
-        <TextBlock  x:Name="LMtime" HorizontalAlignment="Left" Margin="663,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Height="25" Width="109"/>
+        <Grid Height="60" VerticalAlignment="Top" Background="#FF954254">
+            <TextBlock Text="Yummy" FontWeight="Bold" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center"  Height="49" Width="134"/>
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
+            </StackPanel>
+        </Grid>
+        <Label Margin="59,89,0,280" HorizontalAlignment="Left" Content="My Category" VerticalAlignment="Center" FontWeight="Bold" FontSize="24" Height="50" Width="162"/>
+        <Label Margin="59,168,0,221" HorizontalAlignment="Left" Content="Name :" VerticalAlignment="Center" FontSize="20" Height="30" Width="75"/>
+        <Label Margin="59,229,0,144" HorizontalAlignment="Left" Content="Image :" VerticalAlignment="Center"  FontSize="20" Height="46" Width="77"/>
+        <Button x:Name="modifyCategory" Content="SUBMIT" HorizontalAlignment="Left" Margin="259,357,0,0" VerticalAlignment="Top" Click="modifyCategory_Click"/>
+        <TextBox x:Name="modifyName" HorizontalAlignment="Left" Height="32" Margin="200,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" FontSize="12" FontFamily="Verdana" TextChanged="categoryTextChanged"/>
+        <Image x:Name="modifyImage" HorizontalAlignment="Left" Height="123" Margin="200,229,0,0" VerticalAlignment="Top" Width="231"/>
+        <Button x:Name="addImage" Content="+" HorizontalAlignment="Left" Margin="491,227,0,0" VerticalAlignment="Top" Width="53" Height="43" Click="addImage_Click" FontSize="20"/>
+        <Button x:Name="deleteImage" Content="-" HorizontalAlignment="Left" Margin="491,280,0,0" VerticalAlignment="Top" Width="53" Height="43" Click="deleteImage_Click" FontSize="20" />
+        <Button x:Name="closeModifyForm" Content="CLOSE" HorizontalAlignment="Left" Margin="699,89,0,0" VerticalAlignment="Top" Click="closeModifyForm_Click" RenderTransformOrigin="0.47,1.005"/>
+        <Label x:Name="LMlabel" Margin="596,138,0,244" HorizontalAlignment="Left" Content="Last Modify:" VerticalAlignment="Center" FontSize="24" Height="37" Width="176"/>
+        <Label x:Name="LMdateLabel" Margin="596,180,0,206" HorizontalAlignment="Left" Content="Date:" VerticalAlignment="Center" FontSize="18" Height="33" Width="52"/>
+        <Label x:Name="LMtimeLabel" Margin="596,218,0,168" HorizontalAlignment="Left" Content="Time:" VerticalAlignment="Center" FontSize="18" Height="33" Width="54"/>
+        <TextBlock x:Name="LMdate" HorizontalAlignment="Left" Margin="655,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Height="22" Width="117"/>
+        <TextBlock  x:Name="LMtime" HorizontalAlignment="Left" Margin="657,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Height="22" Width="115"/>
 
     </Grid>
 </Window>

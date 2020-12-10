@@ -14,6 +14,7 @@ namespace YummyApp
     /// </summary>
     public partial class App : Application
     {
+        //this constructor was created to set the DataDirectoryto ignore the bin\debug folders when saving to database using connection strings
         public App()
         {
             var solutionDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", ".."));

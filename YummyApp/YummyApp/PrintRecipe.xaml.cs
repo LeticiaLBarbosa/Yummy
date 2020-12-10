@@ -18,14 +18,45 @@ namespace YummyApp
     /// <summary>
     /// Interaction logic for PrintRecipe.xaml
     /// </summary>
+    /// 
+    //Carolina Naoum Junqueira
     public partial class PrintRecipe : Window
     {
-        yummyDatabaseDataContext dc = new yummyDatabaseDataContext();
+        yummyDatabaseDataContext dc;
         Recipe recipe;
         BitmapImage bitmapImage;
-        public PrintRecipe(int? recipeId = null)
+
+        //This method id used to load the recipe on the window
+        public PrintRecipe(int recipeId)
         {
             InitializeComponent();
+            loadRecipe(recipeId);
+        }
+
+        //Opens the print dialog and allows user to print the recipe
+        private void btnPrint_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDialog myPrintDialog = new PrintDialog();
+            if (myPrintDialog.ShowDialog() == true)
+            {
+                myPrintDialog.PrintVisual(this, recipe.Name);
+            }
+        }
+
+        //opens the edit recipe window and allows user to edit the recipe before printing
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            AddRecipe addRecipe = new AddRecipe(recipe.RecipeId);
+            addRecipe.labelNewRecipe.Content = "Edit Recipe";
+            addRecipe.Title = "Edit Recipe";
+            var result = addRecipe.ShowDialog();
+            loadRecipe(recipe.RecipeId);        
+        }
+
+        private void loadRecipe(int recipeId)
+        {
+            dc = new yummyDatabaseDataContext();
             recipe = dc.Recipes.Where(recipe => recipe.RecipeId == recipeId).Single();
 
             if (recipe.Image != null)
@@ -42,7 +73,7 @@ namespace YummyApp
             txtRecipeServings.Text = recipe.Serving.ToString();
             txtRecipeDirections.Text = recipe.Directions;
 
-            string recipeIngredients = string.Empty; 
+            string recipeIngredients = string.Empty;
             foreach (var recipeIngredient in recipe.RecipeIngredients)
                 recipeIngredients += $"{recipeIngredient.Quantity} {recipeIngredient.Measurement} {recipeIngredient.Ingredient.Name}\n";
 
