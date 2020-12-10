@@ -70,7 +70,7 @@
                     </Button>
                 </Grid>
                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="#FF954254">
-                    <ListViewItem Height="60">
+                    <ListViewItem Height="60" Selected="ListViewItem_Selected_1">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ViewDashboard" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
                             <TextBlock Text="Home" VerticalAlignment="Center" Margin="20 10"/>
@@ -94,8 +94,12 @@
                             <TextBlock Text="Recipe" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-
-
+                    <ListViewItem Height="60" Selected="Cart_Button_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ShoppingBasket"  Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Shopping Cart" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
                 </ListView>
             </StackPanel>
         </Grid>
@@ -108,18 +112,19 @@
                 <StackPanel Orientation="Horizontal">
                     <TextBlock  Margin="500,-40,17.6,0" TextWrapping="Wrap" Height="182" Width="432" FontSize="18" LineHeight="36"><Run Text="Cooking you have to be able to master something GOOD before you can make something GREAT, but the secret ingredient is always LOVE and we make recipes with LOVE.." /></TextBlock>
                 </StackPanel>
-            </StackPanel> 
+            </StackPanel>
 
         </Grid>
         <Grid>
+            <Image Source="bg1.jpg" Margin="62,323,-0.4,72.4" RenderTransformOrigin="0.5,0.524" Stretch="Fill"/>
             <StackPanel Orientation="Horizontal">
-                <Label Content="Trending Recipes" Margin="80,297,400,241.4" FontWeight="Bold" FontSize="16"/>
+                <Label Content="Trending Recipes" Margin="80,297,400,241.4" FontWeight="Bold" FontSize="16"  />
             </StackPanel>
-            <Image Source="bg1.jpg" Margin="62,323,-0.4,72.4" RenderTransformOrigin="0.5,0.524" Stretch="Fill"></Image></Grid>
+        </Grid>
         <Image Source="thanksgiving.jpg" Margin="60,351,671.6,31.4"></Image>
         <Image Source="halloween.jpg" Margin="402,351,365.6,31.4"></Image>
         <Image Source="christmas.jpg" Margin="638,351,-32.4,31.4"></Image>
     </Grid>
-   
+
 </Window>
 

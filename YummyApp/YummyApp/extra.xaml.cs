@@ -111,7 +111,7 @@ namespace YummyApp
             dgRecipes.ItemsSource = null;
 
             // selecting specific columns to display in the recipe datagrid
-            dgRecipes.ItemsSource = dc.Recipes.Select(recipe => new { recipe.RecipeId, recipe.Name, recipe.PrepTime, recipe.Serving, Category = recipe.Category1.CategoryName });
+            dgRecipes.ItemsSource = dc.Recipes.Select(recipe => new { recipe.RecipeId, recipe.Name, recipe.PrepTime, recipe.Serving, Category = recipe.Category1.CategoryName }).OrderBy(recipe => recipe.Name);
         }
 
         private void dgRecipes_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
@@ -170,9 +170,27 @@ namespace YummyApp
             ButtonMenuClose.Visibility = Visibility.Visible;
         }
 
+        //By Maria Leticia Leoncio Barbosa
+        //menu button to go to Catalog page
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
-            this.Content = new Catalog();
+            //creates an instance of the Catalog Page
+            Catalog catalog = new Catalog();
+            var parent = this.Parent as Window;
+            //Show catalog page
+            parent.Content = catalog;
+        }
+
+        //menu button to return to MainWindow
+        private void btnHome_Selected(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+        private void Cart_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Shopping_Cart SC = new Shopping_Cart();
+            SC.ShowDialog();
         }
     }
 }

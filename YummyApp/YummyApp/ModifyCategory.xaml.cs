@@ -161,11 +161,12 @@ namespace YummyApp
                             dc.SubmitChanges();
                             MessageBox.Show("New Category Record " + modifyName.Text.ToUpper() + " Created");
                         }
+                        ////after addition and updation category form will open with latest entry
+                        //CategoryForm cf = new CategoryForm(categoryObj);
+                        //cf.Show();
+                        //this.Close();
                     }
-                    //after addition and updation category form will open with latest entry
-                    CategoryForm cf = new CategoryForm(categoryObj);
-                    cf.Show();
-                    this.Close();
+                   
                 }
             }
             catch (Exception ex)

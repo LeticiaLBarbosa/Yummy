@@ -30,6 +30,7 @@ namespace YummyApp
         public PrintRecipe(int recipeId)
         {
             InitializeComponent();
+            //loades recipe when window opens
             loadRecipe(recipeId);
         }
 
@@ -51,9 +52,11 @@ namespace YummyApp
             addRecipe.labelNewRecipe.Content = "Edit Recipe";
             addRecipe.Title = "Edit Recipe";
             var result = addRecipe.ShowDialog();
+            //if user edits recipe the load recipe method is called so that the recipe will be updated in display window
             loadRecipe(recipe.RecipeId);        
         }
 
+        //this method is used to load the recipe to the page by using its id
         private void loadRecipe(int recipeId)
         {
             dc = new yummyDatabaseDataContext();
