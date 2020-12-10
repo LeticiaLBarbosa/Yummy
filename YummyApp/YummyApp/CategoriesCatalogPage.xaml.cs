@@ -90,5 +90,23 @@ namespace YummyApp
             var parent = this.Parent as Window;
             parent.Content = catalogWindow;
         }
+
+
+        private void ButtonMenuClose_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonMenuOpen.Visibility = Visibility.Visible;
+            ButtonMenuClose.Visibility = Visibility.Collapsed;
+        }
+
+        private void ButtonMenuOpen_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonMenuOpen.Visibility = Visibility.Collapsed;
+            ButtonMenuClose.Visibility = Visibility.Visible;
+        }
+
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
