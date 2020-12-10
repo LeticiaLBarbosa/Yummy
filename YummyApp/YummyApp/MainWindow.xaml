@@ -114,9 +114,11 @@
         <Grid>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Trending Recipes" Margin="80,297,400,223.4" FontWeight="Bold" FontSize="16"/>
-
+                <Label Content="Thanksgiving Treats" Margin="-460,532,400,0.4" FontWeight="Bold" FontSize="16"/>
+                <Label Content="Halloween Treats" Margin="-230,532,400,0.4" FontWeight="Bold" FontSize="16"/>
+                <Label Content="Chritsmas Treats" Margin="-210,532,400,0.4" FontWeight="Bold" FontSize="16"/>
             </StackPanel>
-            <Image Source="bg1.jpg" Margin="62,344,-0.4,51.4" RenderTransformOrigin="0.5,0.524" Stretch="Fill"></Image></Grid>
+            <Image Source="bg1.jpg" Margin="62,336,-0.4,64.4" RenderTransformOrigin="0.5,0.524" Stretch="Fill"></Image></Grid>
         <Image Source="thanksgiving.jpg" Margin="60,351,671.6,31.4"></Image>
         <Image Source="halloween.jpg" Margin="402,351,365.6,31.4"></Image>
         <Image Source="christmas.jpg" Margin="638,351,-32.4,31.4"></Image>
