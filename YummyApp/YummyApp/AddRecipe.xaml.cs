@@ -245,10 +245,13 @@ namespace YummyApp
                 {
                     var recipeIngredient = getRecipeIngredient(dgRecipeIngredients.SelectedItem);
                     recipe.RecipeIngredients.Remove(recipeIngredient);
+                    //if recipeIngredient is different from 0 it means its already saved in the data base, so we need to save them to 
+                    //to the recipeIngredientsToDelete List to be deleted once recipe changes are saved by user.
                     if (recipeIngredient.Id != 0)
                     {
                         recipeIngredientsToDelete.Add(recipeIngredient);
                     }
+                    //updates the recipeIngredient dataGrid.
                     dgRecipeIngredients.ItemsSource = recipe.RecipeIngredients.Select(ingredient => new { ingredient.Id, ingredient.Quantity, ingredient.Measurement, Ingredient = ingredient.Ingredient.Name });
                 }            
             }
@@ -258,12 +261,13 @@ namespace YummyApp
             }
         }
 
-        //method that gets recipeIngredients from datagrid that havent been saved so they can be edited or deleted.
+        //method that checkes if recipeIngredients from datagrid  have been saved or not and edit or delete accordingly.
         //since before saving their id's are all 0, we have to ckeck quantity, measurement and ingredient name to select recipeIngredient 
         private RecipeIngredient getRecipeIngredient(dynamic dataGridObject)
         {
             RecipeIngredient recipeIngredient;
 
+            //if the recipe ingredient hasnt been saved to the database, this is how we select the ingredient to edit or delete from datagrid
             if (dataGridObject.Id == 0)
             {
                 recipeIngredient = recipe.RecipeIngredients.First(
@@ -275,6 +279,7 @@ namespace YummyApp
             }
             else
             {
+                //if recipe ingredient has already been saved to the database we select it by using the ID.
                 recipeIngredient = recipe.RecipeIngredients.Single(ri => ri.Id == dataGridObject.Id);
             }
             return recipeIngredient;
