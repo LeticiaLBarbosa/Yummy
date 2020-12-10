@@ -2,6 +2,7 @@
 //
 //
 
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -24,11 +25,11 @@ namespace YummyApp
         public CategoriesCatalogPage()
         {
             InitializeComponent();
-            dc = new yummyDatabaseDataContext();
             ShowCategories();
         }
         private void loadDataToDisplay(List<Category> tab)
         {
+            dc = new yummyDatabaseDataContext();
             myCategories = new List<MediaData>();
             foreach (var categoryObj in tab)
             {
@@ -41,23 +42,21 @@ namespace YummyApp
                 cnt.Title = categoryObj.CategoryName;
                 myCategories.Add(cnt);
             }
+            CategoriesCarousel.ItemsSource = myCategories; // setting the carousel data
         }
 
         private void ShowCategories()
         {
+            dc = new yummyDatabaseDataContext();
             var query = (from Cat in dc.Categories orderby Cat.CategoryName ascending select Cat);
             catTable = query.ToList();
             loadDataToDisplay(catTable);
-            CategoriesCarousel.ItemsSource = myCategories;
         }
 
         private void SearchCategory_Click(object sender, RoutedEventArgs e)
         {
             var tab = (from C in dc.Categories where C.CategoryName.ToUpper().Contains(SearchCategoryInput.Text.ToUpper()) orderby C.CategoryName ascending select C);
-
             loadDataToDisplay(tab.ToList());
-
-            CategoriesCarousel.ItemsSource = myCategories;
         }
 
         private void InspectCategory(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -73,7 +72,34 @@ namespace YummyApp
 
         private void AddNewCategoryButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                ModifyCategory mc = new ModifyCategory();
+                mc.modifyCategory.Content = "ADD";
+                mc.modifyName.Focus();
+                //Hide Date Labels on Adding Category
+                mc.LMlabel.Visibility = Visibility.Hidden;
+                mc.LMdateLabel.Visibility = Visibility.Hidden;
+                mc.LMtimeLabel.Visibility = Visibility.Hidden;
+                mc.LMdate.Visibility = Visibility.Hidden;
+                mc.LMtime.Visibility = Visibility.Hidden;
+                mc.Show();
+                refreshCategories();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " error");
+            }
+        }
 
+        private void refreshCategories()
+        {
+            dc = new yummyDatabaseDataContext();
+            CategoriesCarousel.ItemsSource = null;
+
+            // selecting specific columns to display in the recipe datagrid
+            var catTab = (from C in dc.Categories orderby C.CategoryName ascending select C);
+            loadDataToDisplay(catTab.ToList());
         }
 
         private void ButtonMenuClose_Click(object sender, RoutedEventArgs e)

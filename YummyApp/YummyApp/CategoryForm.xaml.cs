@@ -94,7 +94,7 @@ namespace YummyApp
         }
 
         //handle add operation(No CategoryId in Adding mode)
-        private void addCategory_Click(object sender, RoutedEventArgs e)
+        public void addCategory_Click(object sender, RoutedEventArgs e)
         {
             try
             {
