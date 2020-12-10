@@ -16,7 +16,7 @@ namespace YummyApp
 {
 
     //Carolina Naoum Junqueira
-    public partial class extra : Window
+    public partial class extra : Page
     {
         yummyDatabaseDataContext dc = new yummyDatabaseDataContext();
 
@@ -111,7 +111,7 @@ namespace YummyApp
             dgRecipes.ItemsSource = null;
 
             // selecting specific columns to display in the recipe datagrid
-            dgRecipes.ItemsSource = dc.Recipes.Select(recipe => new { recipe.RecipeId, recipe.Name, recipe.PrepTime, recipe.Serving, Category = recipe.Category1.CategoryName });
+            dgRecipes.ItemsSource = dc.Recipes.Select(recipe => new { recipe.RecipeId, recipe.Name, recipe.PrepTime, recipe.Serving, Category = recipe.Category1.CategoryName }).OrderBy(recipe => recipe.Name);
         }
 
         private void dgRecipes_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
@@ -134,8 +134,57 @@ namespace YummyApp
             }
         }
 
-       
+        //ShoppingList code by Waqas Bashir
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgRecipes.SelectedItem != null)
+            {
+                ShoppingList SL = new ShoppingList((dgRecipes.SelectedItem as dynamic).RecipeId);
+                SL.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a recipe to get the shoping List.");
+            }
+        }
 
-       
+        private void DgRecipes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        //Maitry Patel side Menu code
+        private void ButtonMenuClose_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonMenuOpen.Visibility = Visibility.Visible;
+            ButtonMenuClose.Visibility = Visibility.Collapsed;
+        }
+
+        private void ButtonMenuOpen_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonMenuOpen.Visibility = Visibility.Collapsed;
+            ButtonMenuClose.Visibility = Visibility.Visible;
+        }
+
+        //By Maria Leticia Leoncio Barbosa
+        //menu button to go to Catalog page
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+            //creates an instance of the Catalog Page
+            Catalog catalog = new Catalog();
+            var parent = this.Parent as Window;
+            //Show catalog page
+            parent.Content = catalog;
+        }
+
+        //menu button to return to MainWindow
+        private void btnHome_Selected(object sender, RoutedEventArgs e)
+        {
+           
+        }
     }
 }

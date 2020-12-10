@@ -76,9 +76,9 @@ namespace YummyApp
 
         private void ListViewItem_Selected_1(object sender, RoutedEventArgs e)
         {
-
+            this.Content = new extra();
         }
-
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 

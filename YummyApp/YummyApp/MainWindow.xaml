@@ -88,9 +88,9 @@
                             <TextBlock Text="Category" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem Height="60" Selected="ListViewItem_Selected_1">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Food"  Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                            <materialDesign:PackIcon x:Name="btnRecipeDashboard" Kind="FoodItalian"  Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
                             <TextBlock Text="Recipe" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
