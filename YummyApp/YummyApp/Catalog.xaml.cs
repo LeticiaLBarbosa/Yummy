@@ -36,6 +36,7 @@ namespace YummyApp
         // method overloaded to load the data from the recipes table, and build an object to display inside the recipe carousel
         private void loadDataToDisplay(List<Recipe> tab)
         {
+            dc = new yummyDatabaseDataContext();
             myRecipes = new List<MediaData>();
 
             // for each recipe inside the table build a Media data instance
@@ -61,6 +62,7 @@ namespace YummyApp
         // method overloaded to load the data from the categories table, and build an object to display inside the category carousel
         private void loadDataToDisplay(List<Category> tab)
         {
+            dc = new yummyDatabaseDataContext();
             myCategories = new List<MediaData>();
 
             // for each category inside the table build a Media data instance
@@ -109,6 +111,7 @@ namespace YummyApp
                 // creates a new instance of the PrintRecipe page
                 PrintRecipe printRecipe = new PrintRecipe((RecipesCarousel.SelectedItem as MediaData).Id);
                 printRecipe.ShowDialog(); // show the Print Recipe with all the data about the recipe
+                refreshRecipies();
             }
         }
 
@@ -121,6 +124,7 @@ namespace YummyApp
                 Category category = dc.Categories.Where(cat => cat.CategoryId == categoryId).Single(); // retrieving the selected category data from the Category table
                 CategoryForm cf = new CategoryForm(category); // / creates a new instance of the CategoryForm page
                 cf.Show(); // show the Category form filled with the data of the selected category
+                refreshCategories();
             }
         }
 
@@ -173,6 +177,25 @@ namespace YummyApp
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void refreshRecipies()
+        {
+            dc = new yummyDatabaseDataContext();
+            RecipesCarousel.ItemsSource = null;
+
+            // selecting specific columns to display in the recipe datagrid
+            var recTab = (from R in dc.Recipes orderby R.Name ascending select R);
+            loadDataToDisplay(recTab.ToList());
+        }
+        private void refreshCategories()
+        {
+            dc = new yummyDatabaseDataContext();
+            CategoriesCarousel.ItemsSource = null;
+
+            // selecting specific columns to display in the recipe datagrid
+            var catTab = (from C in dc.Categories orderby C.CategoryName ascending select C);
+            loadDataToDisplay(catTab.ToList());
         }
     }
 }
