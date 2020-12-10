@@ -12,7 +12,10 @@ namespace YummyApp
 {
     /// <summary>
     /// Interaction logic for Catalog.xaml
+    /// Author Maria Leticia Leoncio Barbosa
     /// </summary>
+    
+    // catalog page that shows a small part from the list of categories and recipes
     public partial class Catalog : Page
     {
         yummyDatabaseDataContext dc;
@@ -162,6 +165,7 @@ namespace YummyApp
             parent.Content = categoriesCatalogPage; // show the Catalog of Categories page
         }
 
+        // method to refresh the data of the recipe carousel
         private void refreshRecipies()
         {
             dc = new yummyDatabaseDataContext();
@@ -171,6 +175,8 @@ namespace YummyApp
             var recTab = (from R in dc.Recipes orderby R.Name ascending select R);
             loadDataToDisplay(recTab.ToList());
         }
+
+        // method to refresh the data of the category carousel
         private void refreshCategories()
         {
             dc = new yummyDatabaseDataContext();
@@ -181,18 +187,21 @@ namespace YummyApp
             loadDataToDisplay(catTab.ToList());
         }
 
+        // hide side menu
         private void ButtonMenuClose_Click(object sender, RoutedEventArgs e)
         {
             ButtonMenuOpen.Visibility = Visibility.Visible;
             ButtonMenuClose.Visibility = Visibility.Collapsed;
         }
 
+        // show entire side menu
         private void ButtonMenuOpen_Click(object sender, RoutedEventArgs e)
         {
             ButtonMenuOpen.Visibility = Visibility.Collapsed;
             ButtonMenuClose.Visibility = Visibility.Visible;
         }
 
+        // navigation to the catalog page
         private void CatalogButton_Selected(object sender, RoutedEventArgs e)
         {
             Catalog catalogPage = new Catalog(); // creates an instance of the Catalog page
@@ -200,6 +209,7 @@ namespace YummyApp
             parent.Content = catalogPage; // show the Catalog page
         }
 
+        // navigation to all recipes page
         private void AllRecipesButton_Selected(object sender, RoutedEventArgs e)
         {
             extra extraPage = new extra(); // creates an instance of the All Recipes page
@@ -207,6 +217,7 @@ namespace YummyApp
             parent.Content = extraPage; // show the All Recipes page
         }
 
+        // navigation to dashboard page
         private void DashboardButton_Selected(object sender, RoutedEventArgs e)
         {
             MainWindow dashboard = new MainWindow(); // creates an instance of the dashboard page
@@ -215,6 +226,7 @@ namespace YummyApp
             parent.Content = dashboard.Content; // show the dashboard page
         }
 
+        // navigation to all categories page
         private void AllCategoriesButton_Selected(object sender, RoutedEventArgs e)
         {
             CategoriesCatalogPage categoriesCatalogPage = new CategoriesCatalogPage(); // creates an instance of the All Categories page

@@ -15,7 +15,10 @@ namespace YummyApp
 {
     /// <summary>
     /// Interaction logic for RecipesCatalogPage.xaml
+    /// Author Maria Leticia Leoncio Barbosa
     /// </summary>
+ 
+    // page to show all categories
     public partial class CategoriesCatalogPage : Page
     {
         yummyDatabaseDataContext dc;
@@ -27,6 +30,8 @@ namespace YummyApp
             InitializeComponent();
             ShowCategories();
         }
+
+        // method overloaded to load the data from the categories table, and build an object to display inside the category carousel
         private void loadDataToDisplay(List<Category> tab)
         {
             dc = new yummyDatabaseDataContext();
@@ -45,6 +50,7 @@ namespace YummyApp
             CategoriesCarousel.ItemsSource = myCategories; // setting the carousel data
         }
 
+        // method that load the data from the table and set the carousel to the retrieved data
         private void ShowCategories()
         {
             dc = new yummyDatabaseDataContext();
@@ -53,12 +59,14 @@ namespace YummyApp
             loadDataToDisplay(catTable);
         }
 
+        // method called when the user click on the Search Category button
         private void SearchCategory_Click(object sender, RoutedEventArgs e)
         {
             var tab = (from C in dc.Categories where C.CategoryName.ToUpper().Contains(SearchCategoryInput.Text.ToUpper()) orderby C.CategoryName ascending select C);
             loadDataToDisplay(tab.ToList());
         }
 
+        // method called when an item is selected from the Category Carousel
         private void InspectCategory(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (CategoriesCarousel.SelectedItem != null)
@@ -70,6 +78,7 @@ namespace YummyApp
             }
         }
 
+        // add new category to the database
         private void AddNewCategoryButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -77,7 +86,6 @@ namespace YummyApp
                 ModifyCategory mc = new ModifyCategory();
                 mc.modifyCategory.Content = "ADD";
                 mc.modifyName.Focus();
-                //Hide Date Labels on Adding Category
                 mc.LMlabel.Visibility = Visibility.Hidden;
                 mc.LMdateLabel.Visibility = Visibility.Hidden;
                 mc.LMtimeLabel.Visibility = Visibility.Hidden;
@@ -92,6 +100,7 @@ namespace YummyApp
             }
         }
 
+        // refresh the data from the database and load the displayable data
         private void refreshCategories()
         {
             dc = new yummyDatabaseDataContext();
@@ -102,18 +111,21 @@ namespace YummyApp
             loadDataToDisplay(catTab.ToList());
         }
 
+        // hide side menu
         private void ButtonMenuClose_Click(object sender, RoutedEventArgs e)
         {
             ButtonMenuOpen.Visibility = Visibility.Visible;
             ButtonMenuClose.Visibility = Visibility.Collapsed;
         }
 
+        // show entire side menu
         private void ButtonMenuOpen_Click(object sender, RoutedEventArgs e)
         {
             ButtonMenuOpen.Visibility = Visibility.Collapsed;
             ButtonMenuClose.Visibility = Visibility.Visible;
         }
 
+        // navigation to the catalog page
         private void CatalogButton_Selected(object sender, RoutedEventArgs e)
         {
             Catalog catalogPage = new Catalog(); // creates an instance of the Catalog page
@@ -121,6 +133,7 @@ namespace YummyApp
             parent.Content = catalogPage; // show the Catalog page
         }
 
+        // navigation to all recipes page
         private void AllRecipesButton_Selected(object sender, RoutedEventArgs e)
         {
             extra extraPage = new extra(); // creates an instance of the All Recipes page
@@ -128,6 +141,7 @@ namespace YummyApp
             parent.Content = extraPage; // show the All Recipes page
         }
 
+        // navigation to dashboard page
         private void DashboardButton_Selected(object sender, RoutedEventArgs e)
         {
             MainWindow dashboard = new MainWindow(); // creates an instance of the dashboard page
@@ -136,6 +150,7 @@ namespace YummyApp
             parent.Content = dashboard.Content; // show the dashboard page
         }
 
+        // navigation to all categories page
         private void AllCategoriesButton_Selected(object sender, RoutedEventArgs e)
         {
             CategoriesCatalogPage categoriesCatalogPage = new CategoriesCatalogPage(); // creates an instance of the All Categories page
