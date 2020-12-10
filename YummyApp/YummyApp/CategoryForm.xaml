@@ -14,7 +14,7 @@
             </StackPanel>
         </Grid>
         <Label Background="white"  Foreground="#FF05243A" Margin="49,117,0,306" HorizontalAlignment="Left" Content="My Category" VerticalAlignment="Center" FontWeight="Bold" FontSize="24" Height="46"/>
-        <TextBlock Name="categoryName"  HorizontalAlignment="Left" Margin="49,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="141" Text="Category" TextAlignment="Justify" FontSize="18"/>
+        <TextBlock Name="categoryName"  HorizontalAlignment="Left" Margin="49,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="275" Text="Category" TextAlignment="Justify" FontSize="18"/>
         <Image x:Name="categoryImg" HorizontalAlignment="Left" Height="124" Margin="49,257,0,0" VerticalAlignment="Top" Width="252"/>
         <Button Name="editCategory" Content="Edit" HorizontalAlignment="Left" Margin="49,408,0,0" VerticalAlignment="Top" Click="editCategory_Click" Width="103"/>
         <Button Name="addCategory" Content="Add" HorizontalAlignment="Left" Margin="193,408,0,0" VerticalAlignment="Top" Click="addCategory_Click" Width="108"/>
