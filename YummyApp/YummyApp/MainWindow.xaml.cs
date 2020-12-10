@@ -21,7 +21,7 @@ namespace YummyApp
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        Shopping_Cart SC = new Shopping_Cart();
         //public MainWindow()
         //{
         //    InitializeComponent();
@@ -43,6 +43,8 @@ namespace YummyApp
         //    extra recipePage = new extra();
         //    recipePage.Show();
         //}
+
+        
 
 
         private void ButtonLogout_Click(object sender, RoutedEventArgs e)
@@ -70,6 +72,21 @@ namespace YummyApp
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
             this.Content = new Catalog();
+        }
+
+        private void ListViewItem_Selected_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Cart_Button_Click(object sender, RoutedEventArgs e)
+        {
+            SC.ShowDialog();
         }
     }
 }
