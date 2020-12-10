@@ -170,9 +170,22 @@ namespace YummyApp
             ButtonMenuClose.Visibility = Visibility.Visible;
         }
 
+        //By Maria Leticia Leoncio Barbosa
+        //menu button to go to Catalog page
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
-            this.Content = new Catalog();
+            //creates an instance of the Catalog Page
+            Catalog catalog = new Catalog();
+            var parent = this.Parent as Window;
+            //Show catalog page
+            parent.Content = catalog;
+        }
+
+        //menu button to return to MainWindow
+        private void btnHome_Selected(object sender, RoutedEventArgs e)
+        {
+
+
         }
     }
 }

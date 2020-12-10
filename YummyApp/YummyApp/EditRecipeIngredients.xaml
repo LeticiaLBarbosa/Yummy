@@ -22,8 +22,8 @@
             <ComboBoxItem Content="Mililiters" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Liters" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <TextBox x:Name="txtRecipeIngredientQuantity" HorizontalAlignment="Left" Height="23" Margin="32,60,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="56"/>
-        <TextBox x:Name="txtRecipeIngredientIngredient" HorizontalAlignment="Left" Height="23" Margin="240,59,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtRecipeIngredientQuantity" HorizontalAlignment="Left" Height="23" Margin="32,65,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="56"/>
+        <TextBox x:Name="txtRecipeIngredientIngredient" HorizontalAlignment="Left" Height="23" Margin="240,65,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnEditRecipeIngredientSave" Content="Save" HorizontalAlignment="Left" Margin="195,111,0,0" VerticalAlignment="Top" Width="75" Click="btnEditRecipeIngredientSave_Click" />
         <Button x:Name="btnEditRecipeIngredientCancel" Content="Cancel" HorizontalAlignment="Left" Margin="285,111,0,0" VerticalAlignment="Top" Width="75" Click="btnEditRecipeIngredientCancel_Click"/>
 
