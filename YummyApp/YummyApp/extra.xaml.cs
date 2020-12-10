@@ -184,8 +184,7 @@ namespace YummyApp
         //menu button to return to MainWindow
         private void btnHome_Selected(object sender, RoutedEventArgs e)
         {
-
-
+           
         }
     }
 }
