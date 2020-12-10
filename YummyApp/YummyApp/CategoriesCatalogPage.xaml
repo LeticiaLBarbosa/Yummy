@@ -84,6 +84,12 @@
                             <TextBlock Text="Recipe" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
+                    <ListViewItem Height="60" Selected="Cart_Button_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ShoppingBasket"  Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Shopping Cart" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
                 </ListView>
             </StackPanel>
         </Grid>
@@ -100,18 +106,18 @@
                 </DockPanel>
             </Button>
         </StackPanel>
-        <ListView x:Name="CategoriesCarousel" VerticalAlignment="Top" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Margin="5" BorderBrush="{x:Null}" SelectionChanged="InspectCategory" >
+        <ListView x:Name="CategoriesCarousel" VerticalAlignment="Top" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" Margin="5" BorderBrush="{x:Null}" SelectionChanged="InspectCategory" >
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="5"/>
+                    <UniformGrid Columns="5" HorizontalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid HorizontalAlignment="Center">
+                    <Grid HorizontalAlignment="Center" Width="170">
                         <StackPanel Margin="0,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="Auto" Height="Auto">
-                            <Image Height="50" Source="{Binding ImageData}" VerticalAlignment="Top"/>
-                            <TextBlock Text="{Binding Title}" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                            <Image Height="50" Width="150" Source="{Binding ImageData}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0"/>
+                            <TextBlock Text="{Binding Title}" VerticalAlignment="Bottom"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
