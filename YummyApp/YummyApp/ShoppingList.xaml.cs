@@ -27,9 +27,11 @@ namespace YummyApp
 
 
         bool updateRequested = false;
+        string servingsizeUpdate = "";
 
 
-       
+
+
         public ShoppingList(int? recipeId)
         {
             InitializeComponent(); 
@@ -93,19 +95,22 @@ namespace YummyApp
 
             } else 
               {
-                //string servingsizeUpdate = UpdateServingSize.Text;
-                //goto UpdateServing;
-                MessageBox.Show("new serving size");
+                
+                goto UpdateServing;
+                //MessageBox.Show("new serving size");
             }
 
-            //UpdateServing:
+            UpdateServing:
             /*  In case of new serving size being typed by user, we are iterating through each ingredient and depending on its type, 
                  Mathematical conversion is being taken place followed printing of list  */
 
+             CupToGrams = 0.0;
+             OuncesToGrams = 0.0;
+             TablespoonToGrams = 0.0;
+             TeaspoonToGrams = 0.0;
+            string servingsizeUpdate = UpdateServingSize.Text;   //Taking input of new serving size by user
 
-            //      string servingsizeUpdate = UpdateServingSize.Text;   //Taking input of new serving size by user
-
-            /* int newServingSize = int.Parse(UpdateServingSize.Text);  // Converting into in Optional Integer
+             int newServingSize = int.Parse(UpdateServingSize.Text);  // Converting into in Optional Integer
 
                            foreach (var recipeIngredient in recipe.RecipeIngredients)
                            {
@@ -119,7 +124,7 @@ namespace YummyApp
                                        CupToGrams = CupToGrams/currentServingSize*newServingSize;
                                        recipeIngredients += $"{CupToGrams} Grams {recipeIngredient.Ingredient.Name} ( or {recipeIngredient.Quantity} {recipeIngredient.Measurement}) \n";
                                        shopinglisttext.Text = recipeIngredients;
-                                       noOfServings.Text = newServingSize;
+                                       noOfServings.Text = UpdateServingSize.Text;
                                        break;
                                    case "Tablespoon":
                                        double quantityInTablespoon = recipeIngredient.Quantity;
@@ -127,7 +132,7 @@ namespace YummyApp
                                        TablespoonToGrams = TablespoonToGrams/currentServingSize* newServingSize;
                                        recipeIngredients += $"{TablespoonToGrams} Grams {recipeIngredient.Ingredient.Name} ( or {recipeIngredient.Quantity} {recipeIngredient.Measurement}) \n";
                                        shopinglisttext.Text = recipeIngredients;
-                                       noOfServings.Text = newServingSize;
+                                       noOfServings.Text = UpdateServingSize.Text;
                                          break;
                                    case "Ounces":
                                        double quantityInOunces = recipeIngredient.Quantity;
@@ -135,7 +140,7 @@ namespace YummyApp
                                        OuncesToGrams = OuncesToGrams/currentServingSize*newServingSize;
                                        recipeIngredients += $"{OuncesToGrams} Grams {recipeIngredient.Ingredient.Name} ( or {recipeIngredient.Quantity} {recipeIngredient.Measurement}) \n";
                                        shopinglisttext.Text = recipeIngredients;
-                                       noOfServings.Text = newServingSize;
+                                       noOfServings.Text = UpdateServingSize.Text;
                                        break;
                                    case "Teaspoon":
                                        var quantityInTeaspoon = recipeIngredient.Quantity;
@@ -143,11 +148,11 @@ namespace YummyApp
                                        TeaspoonToGrams = TeaspoonToGrams/currentServingSize*newServingSize;
                                        recipeIngredients += $"{TeaspoonToGrams} Grams {recipeIngredient.Ingredient.Name} ( or {recipeIngredient.Quantity} {recipeIngredient.Measurement}) \n";
                                        shopinglisttext.Text = recipeIngredients;
-                                       noOfServings.Text = newServingSize;
+                                       noOfServings.Text = UpdateServingSize.Text;
                                        break;
 
                                }
-                            } */
+                            } 
         }
 
 
@@ -183,8 +188,10 @@ namespace YummyApp
         {
             yummyDatabaseDataContext ShopingList = new yummyDatabaseDataContext();
             updateRequested = true;
-            //ShopingList.ShowDialog();
-            
+            servingsizeUpdate = UpdateServingSize.Text;
+
+
+
 
 
         }
