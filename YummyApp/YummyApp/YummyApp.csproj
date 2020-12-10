@@ -115,6 +115,9 @@
     <Compile Include="CategoriesCatalogPage.xaml.cs">
       <DependentUpon>CategoriesCatalogPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Shopping-Cart.xaml.cs">
+      <DependentUpon>Shopping-Cart.xaml</DependentUpon>
+    </Compile>
     <Compile Include="yummyDatabase.cs">
       <DependentUpon>yummyDatabase.dbml</DependentUpon>
     </Compile>
@@ -175,6 +178,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="CategoriesCatalogPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shopping-Cart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
