@@ -111,7 +111,7 @@ namespace YummyApp
             dgRecipes.ItemsSource = null;
 
             // selecting specific columns to display in the recipe datagrid
-            dgRecipes.ItemsSource = dc.Recipes.Select(recipe => new { recipe.RecipeId, recipe.Name, recipe.PrepTime, recipe.Serving, Category = recipe.Category1.CategoryName });
+            dgRecipes.ItemsSource = dc.Recipes.Select(recipe => new { recipe.RecipeId, recipe.Name, recipe.PrepTime, recipe.Serving, Category = recipe.Category1.CategoryName }).OrderBy(recipe => recipe.Name);
         }
 
         private void dgRecipes_SelectionChanged_1(object sender, SelectionChangedEventArgs e)

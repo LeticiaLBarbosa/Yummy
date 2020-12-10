@@ -172,7 +172,7 @@ namespace YummyApp
             RecipesCarousel.ItemsSource = null;
 
             // selecting specific columns to display in the recipe datagrid
-            var recTab = (from R in dc.Recipes orderby R.Name ascending select R);
+            var recTab = (from R in dc.Recipes orderby R.Name ascending select R).Take(4);
             loadDataToDisplay(recTab.ToList());
         }
 
@@ -183,7 +183,7 @@ namespace YummyApp
             CategoriesCarousel.ItemsSource = null;
 
             // selecting specific columns to display in the recipe datagrid
-            var catTab = (from C in dc.Categories orderby C.CategoryName ascending select C);
+            var catTab = (from C in dc.Categories orderby C.CategoryName ascending select C).Take(5);
             loadDataToDisplay(catTab.ToList());
         }
 
