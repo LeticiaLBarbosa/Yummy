@@ -60,25 +60,25 @@
                     </Button>
                 </Grid>
                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="#FF954254">
-                    <ListViewItem Height="60">
+                    <ListViewItem Name="DashboardButton" Height="60" Selected="DashboardButton_Selected">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ViewDashboard" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
                             <TextBlock Text="Home" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60" Selected="ListViewItem_Selected">
+                    <ListViewItem Name="CatalogButton" Height="60" Selected="CatalogButton_Selected">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Account" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
                             <TextBlock Text="Catalog" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem Name="AllCategoriesButton" Height="60" Selected="AllCategoriesButton_Selected">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Category" Width="25" Height="25" Margin="10" VerticalAlignment="Center"/>
                             <TextBlock Text="Category" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem Name="AllRecipesButton"  Height="60" Selected="AllRecipesButton_Selected">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="FoodItalian"  Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
                             <TextBlock Text="Recipe" VerticalAlignment="Center" Margin="20 10"/>
@@ -93,13 +93,7 @@
         <TextBox Name="SearchCategoryInput" Grid.Column="1" Margin="5" HorizontalAlignment="Left" Grid.Row="3" Text="Search Category" VerticalAlignment="Center" Width="300" FontSize="12" Padding="5" CaretBrush="#FF954254" Foreground="#FF954254" SelectionBrush="#FF954254"/>
         <Button Name="SearchCategory" Content="Search Category" Grid.Column="2" HorizontalAlignment="Left" Margin="10" Padding="5" Grid.Row="3" VerticalAlignment="Center" Click="SearchCategory_Click" Background="#FF954254" BorderBrush="#FF954254"/>
         <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Padding="5" Margin="5, 0" Background="{x:Null}" BorderBrush="{x:Null}">
-                <DockPanel>
-                    <Image Source="pencil.png" Height="15" Width="15"/>
-                    <Label VerticalAlignment="center">Edit</Label>
-                </DockPanel>
-            </Button>
-            <Button Padding="5" Margin="5, 0" Background="{x:Null}" BorderBrush="{x:Null}">
+            <Button Name="AddNewCategoryButton" Padding="5" Margin="5, 0" Background="{x:Null}" BorderBrush="{x:Null}" Click="AddNewCategoryButton_Click">
                 <DockPanel>
                     <Image Source="add.png" Height="15" Width="15"/>
                     <Label VerticalAlignment="center">Add</Label>

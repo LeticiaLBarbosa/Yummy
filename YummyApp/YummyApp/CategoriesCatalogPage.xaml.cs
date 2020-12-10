@@ -35,7 +35,7 @@ namespace YummyApp
                 MediaData cnt = new MediaData();
                 if (categoryObj.CategoryImage != null)
                 {
-                    cnt.ImageData = ByteArrayToImage(categoryObj.CategoryImage.ToArray());
+                    cnt.ImageData = cnt.ByteArrayToImage(categoryObj.CategoryImage.ToArray());
                 }
                 cnt.Id = categoryObj.CategoryId;
                 cnt.Title = categoryObj.CategoryName;
@@ -71,26 +71,10 @@ namespace YummyApp
             }
         }
 
-        public BitmapImage ByteArrayToImage(byte[] byteArrayIn)
+        private void AddNewCategoryButton_Click(object sender, RoutedEventArgs e)
         {
-            using (MemoryStream ms = new MemoryStream(byteArrayIn))
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.CacheOption = BitmapCacheOption.OnLoad;
-                image.StreamSource = ms;
-                image.EndInit();
-                return image;
-            }
-        }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            Catalog catalogWindow = new Catalog();
-            var parent = this.Parent as Window;
-            parent.Content = catalogWindow;
         }
-
 
         private void ButtonMenuClose_Click(object sender, RoutedEventArgs e)
         {
@@ -104,9 +88,33 @@ namespace YummyApp
             ButtonMenuClose.Visibility = Visibility.Visible;
         }
 
-        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        private void CatalogButton_Selected(object sender, RoutedEventArgs e)
         {
+            Catalog catalogPage = new Catalog(); // creates an instance of the Catalog page
+            var parent = this.Parent as Window;
+            parent.Content = catalogPage; // show the Catalog page
+        }
 
+        private void AllRecipesButton_Selected(object sender, RoutedEventArgs e)
+        {
+            extra extraPage = new extra(); // creates an instance of the All Recipes page
+            var parent = this.Parent as Window;
+            parent.Content = extraPage; // show the All Recipes page
+        }
+
+        private void DashboardButton_Selected(object sender, RoutedEventArgs e)
+        {
+            MainWindow dashboard = new MainWindow(); // creates an instance of the dashboard page
+            dashboard.InitializeComponent();
+            var parent = this.Parent as Window;
+            parent.Content = dashboard.Content; // show the dashboard page
+        }
+
+        private void AllCategoriesButton_Selected(object sender, RoutedEventArgs e)
+        {
+            CategoriesCatalogPage categoriesCatalogPage = new CategoriesCatalogPage(); // creates an instance of the All Categories page
+            var parent = this.Parent as Window;
+            parent.Content = categoriesCatalogPage; // show the All Categories page
         }
     }
 }
