@@ -186,5 +186,11 @@ namespace YummyApp
         {
            
         }
+
+        private void Cart_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Shopping_Cart SC = new Shopping_Cart();
+            SC.ShowDialog();
+        }
     }
 }

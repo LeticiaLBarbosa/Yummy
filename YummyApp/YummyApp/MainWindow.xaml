@@ -94,16 +94,14 @@
                             <TextBlock Text="Recipe" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-
-
+                    <ListViewItem Height="60" Selected="Cart_Button_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ShoppingBasket"  Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Shopping Cart" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
                 </ListView>
             </StackPanel>
-            <ListViewItem Margin="0,300,0,210.4">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Food"  Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
-                    <TextBlock Text="Recipe" VerticalAlignment="Center" Margin="20 10"/>
-                </StackPanel>
-            </ListViewItem>
         </Grid>
         <Grid>
             <MediaElement Margin="84,32,613.6,223.4" Source="viideo.mp4" LoadedBehavior="Play"></MediaElement>
@@ -126,7 +124,6 @@
         <Image Source="thanksgiving.jpg" Margin="60,351,671.6,31.4"></Image>
         <Image Source="halloween.jpg" Margin="402,351,365.6,31.4"></Image>
         <Image Source="christmas.jpg" Margin="638,351,-32.4,31.4"></Image>
-        <Button Content="Cart" HorizontalAlignment="Left" Height="31" Margin="8,312,0,0" VerticalAlignment="Top" Width="41" Click="Cart_Button_Click"/>
     </Grid>
 
 </Window>

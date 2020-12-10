@@ -233,5 +233,11 @@ namespace YummyApp
             var parent = this.Parent as Window;
             parent.Content = categoriesCatalogPage; // show the All Categories page
         }
+
+        private void Cart_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Shopping_Cart SC = new Shopping_Cart();
+            SC.ShowDialog();
+        }
     }
 }

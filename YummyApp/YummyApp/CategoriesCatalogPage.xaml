@@ -84,6 +84,12 @@
                             <TextBlock Text="Recipe" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
+                    <ListViewItem Height="60" Selected="Cart_Button_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ShoppingBasket"  Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Shopping Cart" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
                 </ListView>
             </StackPanel>
         </Grid>
